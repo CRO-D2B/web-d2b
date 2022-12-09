@@ -1,0 +1,55 @@
+.blog-input-container {
+    position: relative;
+    width: 100%;
+    margin-top: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height $transition_time ease, margin-top 400ms ease;
+
+    &.mobile {
+        @media (min-width: $tablet) {
+            display: none;
+        }
+    }
+
+    &.active {
+        margin-top: 30px;
+        max-height: 550px;
+    }
+
+    input {
+        border: 1px solid $color_grey_thin;
+        padding: 15px 20px;
+        border-radius: 45px;
+        color: $color_grey;
+        width: 100%;
+        background: $color_grey_lighter;
+
+        &:focus {
+            outline: none;
+        }
+
+        @media (min-width: $desktop_md) {
+            padding: 20px 25px;
+            font-size: 20px;
+        }
+    }
+
+    .blog-input-icon-container {
+        position: absolute;
+        right: 20px;
+        top: 13px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $color_grey;
+        cursor: pointer;
+
+        @media (min-width: $desktop_md) {
+            width: 25px;
+            height: 25px;
+            right: 25px;
+            top: 20px;
+        }
+    }
+}

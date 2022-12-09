@@ -1,0 +1,89 @@
+.mail-container {
+    cursor: pointer;
+    transition: opacity $transition_time ease;
+    z-index: 9;
+    position: relative;
+
+    &:hover {
+        opacity: .8;
+
+        .mail-content {
+            .box {
+                transform: translateY(-5px);
+            }
+
+            .triangle {
+                top: 5px;
+            }
+        }
+    }
+
+    .mail-content {
+        position: fixed;
+        bottom: 17%;
+        right: 5%;
+        background-color: rgba($color: #54565A, $alpha: .68);
+        mix-blend-mode: multiply;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .box {
+            position: relative;
+            border: 1px solid $white_text;
+            width: 28px;
+            height: 18px;
+            background: $color_grey;
+            transition: transform $transition_time ease;
+
+            &::before {
+                content: '';
+                width: 15px;
+                height: 1px;
+                position: absolute;
+                top: 3px;
+                left: -1px;
+                background: $white_text;
+                transform: rotate(29deg);
+            }
+
+            &::after {
+                content: '';
+                width: 15px;
+                height: 1px;
+                position: absolute;
+                top: 3px;
+                right: -1px;
+                background: $white_text;
+                transform: rotate(-29deg);
+            }
+        }
+
+        .triangle {
+            position: relative;
+            // position: absolute;
+            // width: 20px;
+            // height: 20px;
+            // background: transparent;
+            // border: 1px solid $white_text;
+            // transform: rotate(45deg);
+            // top: 10px;
+            // border-left: transparent;
+            // border-top: transparent;
+            // transition: top $transition_time ease;
+
+            // &::before {
+            //     content: '';
+            //     width: 10px;
+            //     height: 1px;
+            //     position: absolute;
+            //     top: 0;
+            //     left: -30px;
+            //     background: $white_text;
+            // }
+        }
+    }
+}

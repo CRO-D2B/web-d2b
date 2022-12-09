@@ -1,0 +1,174 @@
+.qs-team-container {
+    margin-top: -4px;
+    position: relative;
+
+    @media (max-width: $mobile_lg) {
+        margin-bottom: -45px;
+    }
+
+    @media (min-width: $mobile_lg) {
+        margin-top: 0px;
+
+    }
+
+    .qs-team-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 80px;
+
+        &>.qs-team-item {
+            opacity: 0;
+        }
+
+        &.animate {
+            &>.qs-team-item {
+                // animation: itemsanimation 1s ease;
+                animation: noopanimation 1s ease;
+                animation-fill-mode: backwards;
+                opacity: 1;
+
+                @for $i from 2 through 16 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay: ($i - 1) * 200ms;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: $mobile_lg) {
+            overflow: visible;
+            padding-bottom: 0px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            // repeat(5, 1fr);
+            grid-gap: 4px;
+        }
+
+        .qs-team-item {
+            min-width: 50%;
+            width: 50%;
+            position: relative;
+            transition: transform $transition_time ease 0.01s;
+
+            @media (min-width: $mobile_lg) {
+                // min-width: 200px;
+                width: 100%;
+                height: 100%;
+                transform: translateX(0px) !important;
+                // max-height: 220px;
+                // margin-bottom: 5px;
+            }
+
+
+            img {
+                width: 100%;
+
+                @media (min-width: $mobile_lg) {
+                    height: 100%;
+
+                }
+            }
+
+            @media (min-width: $mobile_lg) {
+                &:hover {
+                    .team-info {
+                        // height: 100%;
+                        transform: scaleY(1);
+                    }
+
+                }
+            }
+
+
+            .team-info {
+                background: $color_green;
+                color: $white_text;
+                padding: 10px 0px;
+                padding-left: 20px;
+                margin-top: -5px;
+
+                @media (min-width: $mobile_lg) {
+                    padding: 0px;
+                    margin-top: 0px;
+                    padding-left: 0px;
+                    position: absolute;
+                    // height: 0%;
+                    height: 100%;
+                    transform: scaleY(0);
+                    transform-origin: bottom;
+
+                    width: 100%;
+                    bottom: 0%;
+                    left: 0%;
+                    background: rgba($color: $color_green, $alpha: .52);
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex-direction: column;
+                    text-align: center;
+                    overflow: hidden;
+                    // transition: height 300ms ease-in-out;
+                    transition: transform 300ms ease-in-out;
+
+                }
+
+
+
+                h5 {
+                    font-weight: $font-bold;
+                    font-size: 9px;
+
+
+                    @media (min-width: $mobile_lg) {
+                        font-size: 12px;
+                        width: 250px;
+                        margin-bottom: 10px;
+                        height: 10px;
+                    }
+
+                    @media (min-width: $tablet) {
+                        font-size: 20px;
+                        height: 20px;
+                    }
+                }
+
+                p {
+                    font-weight: $font-regular;
+                    font-size: 8px;
+
+
+                    @media (min-width: $mobile_lg) {
+                        font-size: 10px;
+                        max-width: 200px;
+                        line-height: 1.4;
+                        height: 50px;
+                    }
+
+                    @media (min-width: $tablet) {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .team-arrow-container {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: $color_green;
+        border-radius: 50%;
+        top: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media (max-width: $mobile_lg) {
+            display: none;
+        }
+    }
+}

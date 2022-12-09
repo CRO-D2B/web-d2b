@@ -1,0 +1,13 @@
+.contacto-bg {
+    background: url('/static/img/contacto\ y\ cookies/contacto_fondo.png') no-repeat center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.svg-contacto {
+    position: absolute;
+    z-index: 0;
+
+
+    &.svg-1 {}
+}

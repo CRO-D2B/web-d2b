@@ -1,0 +1,110 @@
+.qh-herocarrousel-container {
+
+    @media (max-width: $mobile_lg) {
+        min-height: 278px;
+    }
+
+    .hq-herocarrousel-content {
+        padding: 30px 10px 60px;
+        background: $color_grey_light;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+
+
+        &>.hq-carrousel-content {
+            opacity: 0;
+        }
+
+        &.animate {
+            &>.hq-carrousel-content {
+                animation: itemsanimation 1s ease;
+                animation-fill-mode: backwards;
+                opacity: 1;
+
+                @for $i from 2 through 4 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: ($i - 1) * 200ms;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: $mobile_lg) {
+            padding: 50px 40px 90px;
+            height: 40vh;
+            min-height: 285px;
+            max-height: 350px;
+        }
+
+        @media (min-width: $tablet) {
+            padding: 50px 40px 260px;
+        }
+
+        @media (min-width: $desktop_md) {
+            padding: 50px 40px 280px;
+        }
+
+        .hq-carrousel-content {
+            padding: 0px 40px;
+            min-width: 100%;
+            transition: transform $transition-time ease;
+            transform: translateX(-100%);
+
+            @media (min-width: $mobile_lg) {
+                min-width: unset;
+                transform: translateX(0);
+                flex: 1;
+                padding: 0px 0px;
+            }
+
+
+            .hq-svg-container {
+                width: 80px;
+                height: 80px;
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            p {
+                text-align: center;
+                font-size: 14px;
+                font-weight: $font-regular;
+                font-family: $font-sans;
+                color: $color_grey;
+                line-height: 1.6;
+
+                @media (min-width: $mobile_lg) {
+                    margin: 0 auto;
+                    width: 230px;
+                    font-size: 10px;
+                }
+
+                @media (min-width: $tablet) {
+                    font-size: 14px;
+                    width: 340px;
+                }
+
+                @media (min-width: $desktop_md) {
+                    width: 420px;
+                    font-size: 18px;
+                }
+
+            }
+
+        }
+
+        .arrowdown-container {
+            @media (max-width: $mobile_lg) {
+                display: none;
+            }
+        }
+    }
+}

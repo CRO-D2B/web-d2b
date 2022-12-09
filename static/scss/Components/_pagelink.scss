@@ -1,0 +1,27 @@
+.page-link-container {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+
+    @media (min-width: $desktop_md) {
+        margin-bottom: -3px;
+    }
+
+    .pl-arrow-container {
+        height: 19px;
+
+    }
+
+    a {
+        margin-left: 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+
+        @media (min-width: $desktop_md) {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+}

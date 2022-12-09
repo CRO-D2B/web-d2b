@@ -1,0 +1,58 @@
+.header-scroll {
+    top: 0;
+    position: fixed !important;
+    background: rgba($color: $color_dark_navbar, $alpha: .5);
+    height: 50px;
+    display: none;
+    animation: animatein 700ms ease;
+
+    @media (min-width: $mobile_lg) {
+        height: 70px;
+    }
+
+    .header-content {
+        align-items: center;
+        padding-top: 0px !important;
+
+        img {
+            margin-top: 23px;
+            max-height: 30px !important;
+
+            @media (min-width: $mobile_lg) {
+                margin-top: 15px;
+                max-height: 45px !important;
+            }
+
+        }
+
+        .header-menu-container {
+
+            p {
+                font-size: 9px;
+
+                @media (min-width: $mobile_lg) {
+                    font-size: 12px;
+                }
+            }
+
+            .header-button-container {
+                margin-left: 10px;
+
+                @media (min-width: $mobile_lg) {
+                    margin-left: 12px;
+                }
+
+                .button-item {
+                    width: 18px;
+                    height: 2px;
+                    margin-bottom: 4px;
+
+                    @media (min-width: $mobile_lg) {
+                        width: 20px;
+                    }
+
+                }
+            }
+        }
+    }
+}

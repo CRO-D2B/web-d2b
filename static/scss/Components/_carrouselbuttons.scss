@@ -1,0 +1,50 @@
+.carrousel-buttons-container {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    z-index: 4;
+
+    &.h-mobile {
+        @media (min-width: $mobile_lg) {
+            display: none;
+        }
+    }
+
+    &.h-tablet {
+        @media (min-width: $tablet) {
+            display: none;
+        }
+    }
+
+
+    .carrousel-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background $transition-time ease;
+
+        &:hover {
+            background: $color_wine;
+        }
+
+        &.active {
+            background: $color_wine;
+        }
+
+        &.hover-green {
+            &:hover {
+                background: $color_green;
+            }
+
+            &.active {
+                background: $color_green;
+            }
+        }
+    }
+}

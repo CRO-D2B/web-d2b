@@ -1,0 +1,44 @@
+.page-title-container {
+    margin-top: 20px;
+
+    @media (min-width: $desktop_md) {
+        margin-top: 30px;
+    }
+
+    .page-title {
+        display: flex;
+        align-items: center;
+
+        .page-title-line {
+            width: 5px;
+            height: 40px;
+            margin-right: 15px;
+
+            @media (min-width: $tablet) {
+                margin-top: 3px;
+                width: 5px;
+                height: 48px;
+                margin-right: 13px;
+            }
+
+            @media (min-width: $desktop_md) {
+                margin-top: 4px;
+                width: 7px;
+                height: 67px;
+                margin-right: 15px;
+            }
+        }
+
+        h1 {
+            font-size: 50px;
+
+            @media (min-width: $tablet) {
+                font-size: 60px;
+            }
+
+            @media (min-width: $desktop_md) {
+                font-size: 70px;
+            }
+        }
+    }
+}

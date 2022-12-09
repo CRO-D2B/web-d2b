@@ -1,0 +1,124 @@
+.casospage-casos-container {
+    margin-top: 20px;
+
+    .casospage-casos-title {
+        color: $color_grey;
+        font-size: 20px;
+        display: inline-block;
+        margin: 40px 0px 20px;
+
+        @media (min-width: $mobile_lg) {
+            // display: none;
+            margin: 20px 0px 40px;
+        }
+
+
+    }
+
+    .casospage-casos-content {
+        display: flex;
+        justify-content: flex-start;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 90px;
+
+        @media (min-width: $mobile_lg) and (max-width: $tablet) {
+            overflow-x: scroll;
+        }
+
+        @media (min-width: $mobile_lg) {
+            padding-bottom: 0px;
+        }
+    }
+}
+
+.casos-item-container-page {
+    margin-bottom: 15px;
+    border-bottom: 1px solid $color_grey_medium;
+    max-height: unset;
+
+    &.current-case {
+        margin-top: 30px;
+
+        @media (min-width: $mobile_lg) {
+            display: none;
+        }
+    }
+
+    .casos-link-container {
+        @media (max-width: $mobile_lg) {
+            // display: none;
+        }
+    }
+
+    .casos-arrow-container {
+        margin: 0 auto;
+
+        @media (min-width: $mobile_lg) {
+            display: none;
+        }
+
+        .casos-arrow {
+            width: 30px;
+            height: 30px;
+            border: 1px solid $color_wine;
+            border-radius: 50%;
+        }
+    }
+
+    .casos-info-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height $transition_time ease;
+
+
+        @media (min-width: $tablet) {
+            // display: none;
+        }
+
+
+        &.active {
+            max-height: 500px;
+        }
+
+        .casos-info-content {
+            padding: 20px;
+            border: 1px solid $color_grey_light;
+            background: $colors_main_bg;
+
+            h5 {
+                text-transform: uppercase;
+                color: $color_wine_dark;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            span {
+                background: $color_wine_dark;
+                color: $white_text;
+                padding: 2px 5px;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .bullet-item-container {
+                display: flex;
+                align-items: flex-start;
+
+                img {
+                    transform: translateY(3px);
+                    margin-right: 20px;
+                }
+
+                p {
+                    color: $color_grey;
+                }
+            }
+        }
+    }
+}

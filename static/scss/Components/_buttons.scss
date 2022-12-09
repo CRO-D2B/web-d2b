@@ -1,0 +1,77 @@
+.btn {
+    text-align: left;
+    font-weight: $font-regular;
+    color: $white_text;
+    font-size: 13px;
+    font-family: $font-monts;
+    text-transform: uppercase;
+    padding: 22px 20px;
+    width: 200px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: filter $transition-time ease;
+    letter-spacing: 1px;
+    display: inline-block;
+
+    &:hover {
+        filter: brightness(110%);
+    }
+
+    @media (min-width: $mobile_lg) {
+        font-size: 17px;
+        width: 240px;
+    }
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 7%;
+        top: 44.5%;
+        transform: translate(-50%, -50%);
+        border: solid $white_text;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    &.no-arrow {
+        &::after {
+            display: none;
+        }
+    }
+
+    &.btn-green {
+        background: $color_green;
+    }
+
+    &.btn-nobg {
+        background: transparent;
+        outline: 1px solid $white_text;
+    }
+
+    &.btn-wine {
+        background: $color_wine;
+    }
+
+    &.hover-transparent {
+        transition: background $transition-time ease, outline $transition-time ease;
+
+        &:hover {
+            background: transparent;
+            outline: 1px solid $white_text;
+            box-shadow: none;
+        }
+    }
+
+    &.shadow {
+        box-shadow: 0px 3px 6px #0000005C;
+    }
+
+    &.shadow-light {
+        box-shadow: 0px 3px 6px #0000003D;
+    }
+}

@@ -1,0 +1,197 @@
+
+    <nav class="navbar-container">
+        <div class="navbar-content">
+            <div class="navbar-close-container">
+                <p>CERRAR</p>
+                <div class="navbar-button-container">
+                    <div class="close-button-item item-1"></div>
+                    <div class="close-button-item item-2"></div>
+                </div>
+            </div>
+
+            <div class="navbar-layout-container navbar-menu-container">
+                <div class="navbar-menu navbar-first-menu">
+                    <p>QuiÉnes somos</p>
+                    <ul>
+                        <li class="navbar-menu-item"><a href="/quienes-somos">Sobre Nosotros</a></li>
+                        <li class="navbar-menu-item"><a href="/quienes-somos#nuestracultura">Nuestra Cultura</a>
+                        </li>
+                        <li class="navbar-menu-item"><a href="/quienes-somos#evolucionando">Evolucionando</a></li>
+                        <li class="navbar-menu-item"><a href="/quienes-somos#trabajaconnosotros">Trabaja con
+                                Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-menu navbar-second-menu">
+                    <p>Qué Hacemos</p>
+                    <ul>
+                        <li class="navbar-menu-item"><a href="/que-hacemos#expertise">expertise</a></li>
+                        <li class="navbar-menu-item"><a href="/que-hacemos#casos">Casos</a></li>
+                        <li class="navbar-menu-item"><a href="/que-hacemos#clientes">Clientes</a></li>
+                        <li class="navbar-menu-item"><a href="/que-hacemos#partners">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-layout-container navbar-footer-container">
+
+                <div class="navbar-footer second-footer">
+                    <p>Conoce nuestro <a href="/blog">BLOG</a></p>
+                </div>
+
+                <div class="navbar-footer first-footer">
+                    <p>Quieres que hablemos? <a href="/contacto">CONTÁCTANOS</a></p>
+                    <span>|</span>
+                    <a href="https://www.linkedin.com/company/d2b-analytics-performance?trk=similar-pages_result-card_full-click" target="_blank"><img src="/static/img/lkdin.svg" alt="Linkedin"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- HEADER FINISH -->
+
+    <div class="page-link-container section-padding">
+        <div class="pl-arrow-container">
+            <div class="arrow left border-green"></div>
+        </div>
+        <a href="/quienes-somos" class="text bold color-green">QuIÉNES Somos</a>
+    </div>
+
+
+    <div class="blog-title-container section-padding">
+        <div class="blog-title-content">
+
+            <div class="page-title-container">
+                <div class="page-title color-green text bold sans">
+                    <div class="page-title-line bg-green"></div>
+                    <h1>Blog</h1>
+                </div>
+            </div>
+
+            <div class="blog-navigation-container">
+
+                <div class="blog-links-container">
+                    <div class="blog-links-content">
+                        <ul id="categorias_container">
+                            <li>
+                                <!-- <div class="blog-links-arrow-container">
+                                    <picture>
+                                        <source media="(min-width: 1080px)" srcset="/static/img/icons/flechagris.svg"
+                                            alt="">
+                                        <source media="(max-width: 1080px)" srcset="/static/img/icons/flechablanca.svg"
+                                            alt="">
+                                        <img src="/static/img/icons/flechagris.svg" alt="">
+                                    </picture>
+                                </div> -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="blog-options-container">
+                    <div class="blog-search-container">
+                        <img src="/static/img/icons/icon search-03.png" alt="">
+                    </div>
+                    <div class="blog-more-container">
+                        <div class="blog-more-content">
+                            <div class="blog-more-item-close"></div>
+                            <div class="blog-more-item-close"></div>
+                            <div class="blog-more-item-close"></div>
+                            <div class="blog-more-item-open"></div>
+                            <div class="blog-more-item-open"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="blog-input-container mobile">
+            <form method="GET" action="/blog/">
+                <input name="search" type="text" placeholder="Búsqueda Aqui">
+                <div class="blog-input-icon-container">
+                    <img src="/static/img/icons/flechagris.svg" alt="">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <main>
+
+        <section class="section section-padding blog-desktop-display">
+
+            <aside class="aside-desktop">
+
+                <div class="blog-aside-container">
+
+                    <div class="blog-input-container">
+                        <form method="GET" action="/blog/">
+                            <input name="search" type="text" placeholder="Búsqueda Aqui" id="search_input">
+                            <div class="blog-input-icon-container">
+                                <img src="/static/img/icons/flechagris.svg" alt="">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="blog-list-container">
+                        <div class="blog-list-content blog-entradas-container">
+                            <h5>ENTRADAS RECIENTES</h5>
+                            <ul id="entradas_recientes"></ul>
+                        </div>
+
+                        <div class="blog-list-content blog-archivos-container">
+                            <h5>ARCHIVOS</h5>
+                            <ul id="archivo_container"></ul>
+                        </div>
+
+                        <div class="blog-list-content blog-categorias-container">
+                            <h5>CATEGORÍAS</h5>
+                            <ul id="categorias_container_mobile_sidebar"></ul>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </aside>
+
+            <div class="blog-items-container">
+
+                <div id="articulos_container" class="blog-mainitems-content"></div>
+                <div class="blogitem-container">
+                    <div id="articulo_single" class="blogitem-content">
+                </div>
+
+                <div id="articulos_container_mobile" class="blog-mobileitems-content"></div>
+
+            </div>
+
+        </section>
+
+        <section class="section section-padding list-mobile">
+
+            <div class="blog-list-container">
+
+                <div class="blog-list-content blog-entradas-container">
+                    <h5>ENTRADAS RECIENTES</h5>
+                    <ul id="entradas_recientes_mobile"></ul>
+                </div>
+
+                <div class="blog-list-content blog-archivos-container">
+                    <h5>ARCHIVOS</h5>
+                    <ul id="archivo_container_mobile"></ul>
+                </div>
+
+                <div class="blog-list-content blog-categorias-container">
+                    <h5>CATEGORÍAS</h5>
+                    <ul id="categorias_container_sidebar"></ul>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>

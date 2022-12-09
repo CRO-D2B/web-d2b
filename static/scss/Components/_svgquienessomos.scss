@@ -1,0 +1,123 @@
+.svg-hero-qs {
+    position: absolute;
+    width: 50px;
+    opacity: 0;
+    animation: svgsanimation 1s ease;
+    animation-fill-mode: forwards;
+
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation-delay: $i * 300ms;
+        }
+    }
+
+    .svg-border {
+        animation: svgborderanimation 3s ease-in-out .5s;
+        animation-fill-mode: backwards;
+    }
+
+    &.svg-1 {
+        min-width: 180px;
+        width: 22%;
+        left: 42%;
+        top: 25%;
+
+        .svg-line {
+            animation: svglineanimation 1s ease-out;
+            transform-origin: bottom;
+            animation-fill-mode: backwards;
+
+            @for $i from 1 through 7 {
+                &:nth-of-type(#{$i + 1}) {
+                    animation-delay: $i * 100ms + 700ms;
+                }
+            }
+
+            // &:nth-of-type(3) {
+            //     animation-delay: 400ms;
+            // }
+
+            // &:nth-of-type(5) {
+            //     animation-delay: 600ms;
+            // }
+
+            // &:nth-of-type(7) {
+            //     animation-delay: 800ms;
+            // }
+
+        }
+
+        @media (max-width: $mobile_xs) {
+            min-width: 120px;
+        }
+
+        @media (min-width: $mobile_xs) and (max-width: $mobile_lg) {
+            min-width: 150px;
+            max-width: 160px;
+        }
+    }
+
+    &.svg-2 {
+        min-width: 100px;
+        width: 19%;
+        left: 66%;
+        top: 28%;
+
+        .aguja {
+            transform-origin: top;
+            animation: agujaanimation 1.5s ease-in-out .7s;
+            animation-fill-mode: forwards;
+        }
+
+
+        @media (max-width: $mobile_xs) {
+            left: 75%;
+            top: 27%;
+            min-width: 60px;
+        }
+
+        @media (min-width: $mobile_xs) and (max-width: $mobile_lg) {
+            top: 28%;
+            left: 76%;
+            min-width: 90px;
+            max-width: 100px;
+        }
+    }
+
+    &.svg-3 {
+        min-width: 200px;
+        width: 30%;
+        left: 49%;
+        top: 53%;
+
+        .svg-circle {
+            animation: svgcircleanimation 1.5s ease-in-out 1.5s;
+            animation-fill-mode: backwards;
+
+            &:nth-of-type(2) {
+                animation-delay: 1.4s;
+            }
+
+            &:nth-of-type(3) {
+                animation-delay: 1.7s;
+            }
+
+            &:nth-of-type(4) {
+                animation-delay: 2s;
+            }
+        }
+
+        @media (max-width: $mobile_xs) {
+            // left: 82%;
+            top: 55%;
+            min-width: 120px;
+        }
+
+        @media (min-width: $mobile_xs) and (max-width: $mobile_lg) {
+            top: 57%;
+            left: 49.5%;
+            min-width: 130px;
+            max-width: 130px;
+        }
+    }
+}

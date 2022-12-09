@@ -1,0 +1,25 @@
+
+@import 'constants';
+@import 'layout';
+
+@import './Components/animations';
+@import './Components/buttons';
+@import './Components/background';
+@import './Components/casositem';
+@import './Components/casoinfo';
+@import './Components/container';
+@import './Components/styles';
+@import './Components/footer';
+@import './Components/pagelink';
+@import './Components/pagetitle';
+@import './Components/bloginput';
+
+@import './Index/Aside/mail';
+@import './Index/Nav/navbar';
+@import './Index/Header/header';
+@import './Index/Header/headerscroll';
+
+@import './Quehacemos/Main/casos';
+
+@import './Casos/Main/casoscards';
+@import './Casos/Main/casosmain';

@@ -1,0 +1,27 @@
+
+@import 'constants';
+@import 'layout';
+
+
+@import './Components/animations';
+@import './Components/buttons';
+@import './Components/background';
+@import './Components/container';
+@import './Components/styles';
+@import './Components/footer';
+@import './Components/pagelink';
+@import './Components/pagetitle';
+@import './Components/bloginput';
+
+@import './Index/Aside/mail';
+@import './Index/Nav/navbar';
+@import './Index/Header/header';
+@import './Index/Header/headerscroll';
+
+@import './QuienesSomos/Main/blog';
+
+@import './Blog/Header/header';
+@import './Blog/Main/blogitems';
+@import './Blog/Main/bloglist';
+@import './Blog/Main/desktopdisplay';
+@import './Blog/BlogItem/blogitem';

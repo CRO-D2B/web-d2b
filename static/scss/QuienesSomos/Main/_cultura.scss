@@ -1,0 +1,94 @@
+.cultura-container {
+
+    @media (max-width: $mobile_lg) {
+        min-height: 620px;
+    }
+
+    @media (min-width: $tablet) {
+        height: 420px;
+    }
+
+
+    @media (min-width: $desktop_md) {
+        height: 480px;
+    }
+
+    .cultura-content {
+
+        .cultura-info-container {
+
+            @media (min-width: $tablet) {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .cultura-info-text {
+                padding: 5px 0px;
+
+                @media (min-width: $tablet) {
+                    flex: 1;
+                }
+
+                h5 {
+                    margin-bottom: 20px;
+                    font-size: 19px;
+                    line-height: 1.8;
+
+                    @media (min-width: $tablet) {
+                        font-size: 23px;
+                        margin-bottom: 40px;
+                        max-width: 480px;
+                    }
+
+                    @media (min-width: $desktop_md) {
+                        font-size: 26px;
+                        max-width: 530px;
+                    }
+
+                }
+
+                p {
+                    color: $color_grey;
+                    line-height: 1.8;
+
+                    @media (min-width: $tablet) {
+                        font-size: 19px;
+                        margin-bottom: 40px;
+                        max-width: 530px;
+                    }
+
+                    @media (min-width: $desktop_md) {
+                        max-width: 600px;
+                        font-size: 22px;
+                    }
+
+                }
+            }
+
+            .cultura-info-ill {
+                @media (min-width: $tablet) {
+                    flex: 1;
+                    transform: translateY(-90px);
+                }
+
+                @media (min-width: $desktop_md) {
+                    transform: translateY(-120px);
+                }
+
+                img {
+                    max-width: 100%;
+                    max-height: 300px;
+
+                    @media (min-width: $tablet) {
+                        max-height: 450px;
+                    }
+
+                    @media (min-width: $desktop_md) {
+                        max-height: 500px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,238 @@
+// FONDOS
+
+.bg-white {
+    background: $white_text;
+}
+
+.bg-wine {
+    background: $color_wine !important;
+}
+
+.bg-grey {
+    background: $color_grey !important;
+}
+
+.bg-grey-thin {
+    background: $color_grey_thin;
+}
+
+.bg-grey-medium {
+    background: $color_grey_medium;
+}
+
+.bg-green {
+    background: $color_green;
+}
+
+.bg-green-dark {
+    background: $color_green_dark;
+}
+
+.bg-grey-lighter {
+    background: $color_grey_lighter;
+}
+
+// COLORS
+
+.color-wine {
+    color: $color_wine;
+}
+
+.color-white {
+    color: $white_text;
+}
+
+.color-green {
+    color: $color_green;
+}
+
+.color-grey {
+    color: $color_grey !important;
+}
+
+// BORDERS 
+
+.border-wine {
+    border: solid $color_wine;
+}
+
+.border-white {
+    border: solid $white_text;
+}
+
+.border-green {
+    border: solid $color_green;
+}
+
+.border-grey {
+    border: solid $color_grey;
+}
+
+
+// CONTAINER DE FLECHA
+.arrowdown-container {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: $white_text;
+    border-radius: 50%;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+// SECCIONES
+.section {
+    margin-bottom: 20px;
+
+    @media (min-width: $mobile_lg) {
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: $desktop_md) {
+        margin-bottom: 60px;
+    }
+}
+
+.padding-space {
+    padding-top: 50px !important;
+
+    @media (min-width: $mobile_lg) {
+        padding-top: 70px !important;
+    }
+
+    @media (min-width: $desktop_md) {
+        padding-top: 80px !important;
+    }
+}
+
+main {
+    position: relative;
+    z-index: 3;
+}
+
+.section-padding {
+    padding: 0px 20px;
+
+    @media (min-width: $mobile_lg) {
+        padding: 0px 50px;
+        width: unset;
+    }
+
+    @media (min-width: $tablet) {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (min-width: $desktop_md) {
+        width: 1270px;
+    }
+
+
+}
+
+// TEXT
+.text {
+
+    &.regular {
+        font-weight: $font-regular;
+    }
+
+    &.semibold {
+        font-weight: $font-semibold;
+    }
+
+    &.bold {
+        font-weight: $font-bold;
+    }
+
+    &.sans {
+        font-family: $font-sans;
+    }
+}
+
+// FLECHA
+.arrow {
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+
+    &.right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    &.left {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+    }
+}
+
+
+// ROTAR ICONO DE FLECHA
+.up {
+    transform: rotate(-90deg);
+}
+
+.left {
+    transform: rotate(-180deg);
+}
+
+.down {
+    transform: rotate(90deg);
+}
+
+// ARROWS CONTAINERS
+.animated-arrow-container {
+    opacity: 0;
+
+    &.animate {
+        animation: arrowanimation 1s ease 0s 6 alternate;
+        animation-fill-mode: forwards;
+        opacity: 1;
+    }
+}
+
+
+// QUE HACEMOS HERO
+.que-hacemos-hero {
+    .section-hero-descr-title-container {
+
+        @media (min-width: $tablet) {
+            max-width: 480px !important;
+        }
+
+        @media (min-width: $desktop_md) {
+            max-width: 550px !important;
+        }
+    }
+}
+
+.quienes-somos-hero,
+.que-hacemos-hero {
+
+    .section-hero-content {
+        .section-hero-descr-container {
+            padding-bottom: 37px !important;
+        }
+    }
+
+    h3 {
+        @media (min-width: $mobile_lg) and (max-width: 850px) {
+            font-size: 19px !important;
+        }
+    }
+}
+
+
+// HIDE MOBILE
+.hide-mobile {
+    @media (max-width: $mobile_lg) {
+        display: none !important;
+    }
+}

@@ -1,0 +1,97 @@
+.svg-hero-qh {
+    position: absolute;
+    animation: itanimation 3.5s ease-in-out .5s 1;
+    // transform: translate(-50%, -50%);
+    // overflow: visible;
+
+
+    &.svg-1 {
+        min-width: 150px;
+        width: 25%;
+        left: 39%;
+        top: 5%;
+
+        @media (max-width: $mobile_lg) {
+            min-width: 80px;
+            top: 7%;
+            max-width: 130px;
+        }
+
+    }
+
+    &.svg-2 {
+        min-width: 175px;
+        width: 30%;
+        left: 58%;
+        top: 23%;
+
+        @media (max-width: $mobile_lg) {
+            min-width: 70px !important;
+            top: 24% !important;
+            max-width: 160px;
+        }
+
+    }
+
+    &.svg-3 {
+        min-width: 175px;
+        width: 30%;
+        left: 7%;
+        top: 38%;
+
+        @media (max-width: $mobile_lg) {
+            min-width: 30px !important;
+            top: 40%;
+            max-width: 150px;
+        }
+
+
+    }
+
+    &.svg-4 {
+        min-width: 120px;
+        width: 23%;
+        left: 11%;
+        top: 12%;
+
+        @media (max-width: $mobile_lg) {
+            left: unset !important;
+            right: 70%;
+            min-width: 70px !important;
+            top: 14%;
+            max-width: 120px;
+        }
+
+
+    }
+
+    &.svg-5 {
+        min-width: 150px;
+        width: 25%;
+        left: 63%;
+        top: 47%;
+
+        @media (max-width: $mobile_lg) {
+            min-width: 30px !important;
+            left: 69%;
+            top: 48%;
+            max-width: 120px;
+        }
+
+    }
+
+    &.svg-6 {
+        min-width: 150px;
+        width: 25%;
+        left: 13%;
+        top: 68%;
+
+        @media (max-width: $mobile_lg) {
+            min-width: 50px !important;
+            left: 10%;
+            top: 68%;
+            max-width: 120px;
+        }
+
+    }
+}

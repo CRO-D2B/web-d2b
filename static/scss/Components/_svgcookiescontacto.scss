@@ -1,0 +1,55 @@
+.svg-cc {
+    position: absolute;
+    z-index: 0;
+
+    &.svg-1 {
+        width: 40%;
+        top: 22%;
+        left: 13%;
+        animation: ringsvg3 2s ease 0s infinite alternate;
+
+        @media (max-width: $mobile_lg) {
+            width: 70%;
+            top: 50%;
+            left: -30%;
+            max-width: 300px;
+        }
+    }
+
+    &.svg-2 {
+        max-width: 280px;
+        width: 20%;
+        top: 12%;
+        left: 57%;
+        z-index: 1;
+        animation: ringsvg2 2s ease 0s infinite alternate;
+        animation-fill-mode: forwards;
+
+
+        @media (max-width: $mobile_lg) {
+            width: 40%;
+            top: 20%;
+            left: 40%;
+            max-width: 200px;
+        }
+    }
+
+    &.svg-3 {
+        min-width: 600px;
+        max-width: 700px;
+        width: 50%;
+        top: -80%;
+        left: 60%;
+        transform: rotate(-125deg);
+        animation: ringsvg1 2s ease 0s infinite alternate;
+        animation-fill-mode: backwards;
+
+        @media (max-width: $mobile_lg) {
+            min-width: unset;
+            width: 90%;
+            top: -30%;
+            left: 50%;
+            max-width: 400px;
+        }
+    }
+}

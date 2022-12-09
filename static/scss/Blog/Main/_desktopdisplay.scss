@@ -1,0 +1,65 @@
+.blog-desktop-display {
+
+    @media (min-width: $tablet) {
+        display: flex;
+    }
+
+    .aside-desktop {
+        display: none;
+
+        @media (min-width: $tablet) {
+            display: block;
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        @media (min-width: $desktop_md) {
+            padding-right: 50px;
+        }
+
+        .blog-aside-container {
+
+            .blog-input-container {
+                max-height: none;
+                margin: 40px 0px;
+            }
+
+            .blog-list-container {
+
+                .blog-list-content {
+
+                    h5 {
+                        background: none;
+                        color: $color_green_dark;
+                        text-align: left;
+                        padding: 0px;
+                        font-size: 18px;
+
+                        @media (min-width: $desktop_md) {
+                            font-size: 21px;
+                        }
+                    }
+
+                    ul {
+
+                        li {
+
+                            a {
+                                font-size: 14px;
+
+                                @media (min-width: $desktop_md) {
+                                    font-size: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .blog-items-container {
+        flex: 3;
+    }
+
+}

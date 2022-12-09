@@ -1,0 +1,30 @@
+.container {
+    padding-right: 20px;
+    padding-left: 50px;
+
+    &.animate {
+        animation: animatein 700ms ease;
+    }
+
+    @media (min-width: $mobile_lg) {
+        padding: 0px 50px;
+        // padding: 0px 70px;   
+    }
+}
+
+.animate-header {
+    animation: animatein 700ms ease;
+}
+
+
+@keyframes animatein {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

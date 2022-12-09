@@ -1,0 +1,80 @@
+.casos-container {
+
+    @media (max-width: $mobile_lg) {
+        margin-bottom: -60px;
+        min-height: 590px;
+    }
+
+    .casos-content {
+
+        .casos-data-container {
+            position: relative;
+            padding-bottom: 90px;
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            justify-content: flex-start;
+
+            @media (min-width: $mobile_lg) {
+                padding-bottom: 80px;
+            }
+
+
+            &>.casos-item-container {
+                opacity: 0;
+            }
+
+            &.animate {
+                &>.casos-item-container {
+                    animation: itemsanimation 1s ease;
+                    animation-fill-mode: backwards;
+                    opacity: 1;
+
+                    @for $i from 1 through 3 {
+                        &:nth-of-type(#{$i}) {
+                            animation-delay: $i * 200ms;
+                        }
+                    }
+                }
+            }
+
+
+            @media (min-width: $mobile_lg) and (max-width: $tablet) {
+                overflow-x: scroll;
+            }
+
+            @media (min-width: $mobile_lg) {
+                padding-bottom: 0px;
+                min-height: 499px;
+            }
+
+
+        }
+
+        .casos-btn-container {
+            margin: 50px 0;
+
+            @media (max-width: $mobile_lg) {
+                display: none;
+            }
+
+            .casos-btn-content {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+
+                a {
+                    font-weight: $font-medium;
+                    font-size: 17px;
+                    width: 220px;
+                }
+
+
+            }
+        }
+    }
+
+
+
+}
