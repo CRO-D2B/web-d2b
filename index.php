@@ -5,9 +5,10 @@ require_once "contact.php";
 
 $routes = [];
 
-function render_base($head = false, $body) {
+function render_base($head = false, $body)
+{
 	require 'head.php';
-	$base = render_head($head, 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	$base = render_head($head, 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 	$base .= file_get_contents('navbar.html');
 
 	$base .= $body;
@@ -18,49 +19,50 @@ function render_base($head = false, $body) {
 	return $base;
 }
 
-function send_message(){
+function send_message()
+{
 	$message = new Message($_POST);
 	var_dump($message->handle_post());
 }
 
 route('/', function () {
-    return render_base('home', file_get_contents('home.html'));
+	return render_base('home', file_get_contents('home.html'));
 });
 
 route('que-hacemos', function () {
-    return render_base('que_hacemos', file_get_contents('quehacemos.html'));
+	return render_base('que_hacemos', file_get_contents('quehacemos.html'));
 });
 
 route('quienes-somos', function () {
-    return render_base('quienes_somos', file_get_contents('quienessomos.html'));
+	return render_base('quienes_somos', file_get_contents('quienessomos.html'));
 });
 
 route('contacto', function () {
-    return render_base('contacto', file_get_contents('contact.html'));
+	return render_base('contacto', file_get_contents('contact.html'));
 });
 
 route('trabaja-con-nosotros', function () {
-    return render_base('contacto', file_get_contents('trabajaconnosotros.html'));
+	return render_base('contacto', file_get_contents('trabajaconnosotros.html'));
 });
 
 route('politica-de-cookies', function () {
-    return render_base('cookies', file_get_contents('cookies.html'));
+	return render_base('cookies', file_get_contents('cookies.html'));
 });
 
 route('casos', function () {
-    return render_base('casos', file_get_contents('caso.html'));
+	return render_base('casos', file_get_contents('caso.html'));
 });
 
 route('expertise', function () {
-    return render_base('expertise', file_get_contents('expertise.html'));
+	return render_base('expertise', file_get_contents('expertise.html'));
 });
 
 route('blog', function () {
-    return render_base('blog', file_get_contents('blog-home.html'));
+	return render_base('blog', file_get_contents('blog-home.html'));
 });
 
 route('send_message', function () {
-    return send_message();
+	return send_message();
 });
 
 route('robots.txt', function () {
@@ -76,27 +78,27 @@ route('sitemap.xml', function () {
 	$sitemap_content = '
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 		   <url>
-		      <loc>'.$base_url.'</loc>
+		      <loc>' . $base_url . '</loc>
 		      <priority>0.8</priority>
 		   </url>
 		   <url>
-		      <loc>'.$base_url.'/que-hacemos</loc>
+		      <loc>' . $base_url . '/que-hacemos</loc>
 		      <priority>0.8</priority>
 		   </url>
 		   <url>
-		      <loc>'.$base_url.'/quienes-somos</loc>
+		      <loc>' . $base_url . '/quienes-somos</loc>
 		      <priority>0.8</priority>
 		   </url>
 		   <url>
-		      <loc>'.$base_url.'/contacto</loc>
+		      <loc>' . $base_url . '/contacto</loc>
 		      <priority>0.8</priority>
 		   </url>
 		   <url>
-		      <loc>'.$base_url.'/trabaja-con-nosotros</loc>
+		      <loc>' . $base_url . '/trabaja-con-nosotros</loc>
 		      <priority>0.8</priority>
 		   </url>
 		   <url>
-		      <loc>'.$base_url.'/blog</loc>
+		      <loc>' . $base_url . '/blog</loc>
 		      <priority>0.8</priority>
 		   </url>
 	';
@@ -105,7 +107,7 @@ route('sitemap.xml', function () {
 	foreach ($blog_categories->data as $category) {
 		$sitemap_content .= '
 			<url>
-			   <loc>'.$base_url.'/blog/'.$category->url_segment.'</loc>
+			   <loc>' . $base_url . '/blog/' . $category->url_segment . '</loc>
 			   <priority>0.8</priority>
 			</url>
 		';
@@ -114,7 +116,7 @@ route('sitemap.xml', function () {
 	foreach ($blog_articles->data as $article) {
 		$sitemap_content .= '
 			<url>
-			   <loc>'.$base_url.'/blog/'.$article->url_segment.'</loc>
+			   <loc>' . $base_url . '/blog/' . $article->url_segment . '</loc>
 			   <priority>0.8</priority>
 			</url>
 		';
@@ -123,7 +125,7 @@ route('sitemap.xml', function () {
 	foreach ($casos->data as $caso) {
 		$sitemap_content .= '
 			<url>
-			   <loc>'.$base_url.'/casos/'.$caso->url_segment.'</loc>
+			   <loc>' . $base_url . '/casos/' . $caso->url_segment . '</loc>
 			   <priority>0.8</priority>
 			</url>
 		';
@@ -132,7 +134,7 @@ route('sitemap.xml', function () {
 	foreach ($expertises->data as $expertise) {
 		$sitemap_content .= '
 			<url>
-			   <loc>'.$base_url.'/expertise/'.$expertise->url_segment.'</loc>
+			   <loc>' . $base_url . '/expertise/' . $expertise->url_segment . '</loc>
 			   <priority>0.8</priority>
 			</url>
 		';

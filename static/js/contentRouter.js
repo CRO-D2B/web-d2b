@@ -79,7 +79,6 @@ const renderExpertise = (data, index) => {
   if (index < data.length) {
     getImage(data[index].imagen).then((image) => {
       let div = document.createElement("div")
-      // div.href = "/expertise/" + data[index].url_segment
       div.classList.add("expertise-item-container")
       div.innerHTML =
         '<a href="/expertise/' +
@@ -98,6 +97,27 @@ const renderExpertise = (data, index) => {
 
       actualAppendContent("expertise_data_container", div)
       renderExpertise(data, index + 1)
+    })
+  }
+}
+
+const renderExpertiseNoDescription = (data, index) => {
+  if (index < data.length) {
+    getImage(data[index].imagen).then((image) => {
+      let div = document.createElement("div")
+      div.classList.add("expertise-item-container")
+      div.style.setProperty("--bgimg", "url(" + image + ")")
+      div.innerHTML =
+        '<a href="/expertise/' +
+        data[index].url_segment +
+        '">\
+							<div class="expertise-item-content-container">\
+								<h5>' +
+        data[index].titulo +
+        "</h5></div> </a>"
+
+      actualAppendContent("expertise_data_container", div)
+      renderExpertiseNoDescription(data, index + 1)
     })
   }
 }
@@ -775,7 +795,7 @@ switch (segments[1]) {
     break
   case "expertise":
     getExpertise().then((json) => {
-      renderExpertise(json.data, 0)
+      renderExpertiseNoDescription(json.data, 0)
       const expertise = json.data.filter(
         (exp) => exp.url_segment == segments[2]
       )[0]

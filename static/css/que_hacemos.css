@@ -2324,7 +2324,7 @@ main {
   z-index: 3;
   position: relative;
   margin-bottom: 15px;
-  height: 135px;
+  height: 155px;
   position: relative;
 }
 .expertise-container
@@ -2367,7 +2367,7 @@ main {
     .expertise-content
     .expertise-data-container
     .expertise-item-container {
-    height: 195px;
+    height: 220px;
   }
 }
 @media (min-width: 1080px) {

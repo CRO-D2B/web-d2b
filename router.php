@@ -15,7 +15,8 @@ $routes = [];
  * @param \Closure $callback Called when current URL matches provided action
  */
 
-function route($action, Closure $callback) {
+function route($action, Closure $callback)
+{
     global $routes;
     $action = trim($action, '/');
     $routes[$action] = $callback;
@@ -27,22 +28,23 @@ function route($action, Closure $callback) {
  * @param $action string
  */
 
-function dispatch($action) {
+function dispatch($action)
+{
     global $routes;
 
     $action = trim($action, '/');
 
     if (isset($routes[$action])) {
-	    $callback = $routes[$action];
-    } else if(preg_match( '/blog\/.*/', $action)) {
+        $callback = $routes[$action];
+    } else if (preg_match('/blog\/.*/', $action)) {
         $callback = $routes['blog'];
-    } else if(preg_match( '/casos\/.*/', $action)) {
-    	$callback = $routes['casos'];
-    } else if(preg_match( '/expertise\/.*/', $action)) {
-    	$callback = $routes['expertise'];
+    } else if (preg_match('/casos\/.*/', $action)) {
+        $callback = $routes['casos'];
+    } else if (preg_match('/expertise\/.*/', $action)) {
+        $callback = $routes['expertise'];
     } else {
-    	$callback = $routes['list_category'];
+        $callback = $routes['list_category'];
     }
- 
+
     echo call_user_func($callback);
 }
