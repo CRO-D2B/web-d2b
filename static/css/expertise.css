@@ -250,13 +250,13 @@ html {
   cursor: pointer;
   max-height: 450px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #f6f6f6;
   background-size: cover;
   border-radius: 100%;
 }
-.expertise-item-container::before {
+.expertisepage-expertise-container
+  .expertisepage-expertise-content
+  .expertise-item-container::before {
   content: "";
   background-image: var(--bgimg);
   background-color: #f6f6f6;
@@ -288,15 +288,22 @@ html {
   }
 }
 .expertise-item-container a {
+  height: 100%;
+  width: 100%;
   border-radius: 100%;
   text-align: center;
   color: #93358d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
 }
 .expertise-item-container:hover {
   background-color: #93358d;
 }
-.expertise-item-container:hover::before {
+.expertisepage-expertise-container
+  .expertisepage-expertise-content
+  .expertise-item-container:hover::before {
   opacity: 0;
   background-color: #93358d;
 }
@@ -2068,11 +2075,12 @@ main {
     margin-top: 60px;
   }
 }
-
 .expertise-info-content .nuestra-expertise-item {
   margin-bottom: 20px;
 }
-
 .expertise-info-content h2 {
   color: #570b52;
+}
+.expertisepage-expertise-container.section.section-padding {
+  display: none;
 }
