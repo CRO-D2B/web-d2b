@@ -83,13 +83,9 @@ const renderExpertise = (data, index) => {
       div.innerHTML =
         '<a href="/expertise/' +
         data[index].url_segment +
-        '"><div class="expertise-item-img-container">\
-								<img src="' +
+        '"><div class="expertise-item-img-container"><img src="' +
         image +
-        '">\
-							</div>\
-							<div class="expertise-item-content-container">\
-								<h5>' +
+        '"></div><div class="expertise-item-content-container"><h5>' +
         data[index].titulo +
         "</h5> <p>" +
         data[index].subtitulo +

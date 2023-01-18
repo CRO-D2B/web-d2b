@@ -16,7 +16,7 @@ function animate(clases, observer) {
 function callback(entries, observer) {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("animate")
+      entry.target.classList.add('animate')
       observer.unobserve(entry.target)
     }
   })
@@ -28,80 +28,80 @@ const observerArrow = new IntersectionObserver(callback, { threshold: 0.7 })
 
 const bigContainers = [
   // QUIENES SOMOS
-  "qs-team-content",
-  "info-links-container",
-  "tr-grid-content",
-  "blog-info-container-desktop",
-  "blog-info-container-mobile",
+  'qs-team-content',
+  'info-links-container',
+  'tr-grid-content',
+  'blog-info-container-desktop',
+  'blog-info-container-mobile',
 
   // QUE HACEMOS
-  "hq-herocarrousel-content",
-  "casos-data-container",
-  "expertise-data-container",
+  'hq-herocarrousel-content',
+  'casos-data-container',
+  'expertise-data-container'
 ]
 
 const smallContainers = [
-  "section-title-container",
+  'section-title-container',
 
   // QUE HACEMOS
-  "clientes-logos-content",
+  'clientes-logos-content'
 ]
 
 animate(bigContainers, observerBg)
 animate(smallContainers, observerSm)
-animate(["animated-arrow-container"], observerArrow)
+animate(['animated-arrow-container'], observerArrow)
 
-const closeBtn = document.querySelector(".navbar-close-container")
-const openBtn = document.querySelectorAll(".header-menu-container")
-const navbar = document.querySelector(".navbar-container")
-const navbaritems = document.querySelectorAll(".navbar-menu-item")
-const body = document.querySelector("body")
+const closeBtn = document.querySelector('.navbar-close-container')
+const openBtn = document.querySelectorAll('.header-menu-container')
+const navbar = document.querySelector('.navbar-container')
+const navbaritems = document.querySelectorAll('.navbar-menu-item')
+const body = document.querySelector('body')
 
 // NAVBAR
 openBtn.forEach((el) => {
-  el.addEventListener("click", () => {
+  el.addEventListener('click', () => {
     // no permitir scroll
-    body.style.overflow = "hidden"
+    body.style.overflow = 'hidden'
 
-    navbar.classList.add("active")
+    navbar.classList.add('active')
   })
 })
 
 // CERRAR NAVBAR
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener('click', () => {
   // permitir scroll
-  body.style.overflow = "visible"
+  body.style.overflow = 'visible'
 
-  navbar.classList.remove("active")
+  navbar.classList.remove('active')
 })
 
 // CERRAR NAVBAR CUANDO APRETAN UN LINK
 navbaritems.forEach((el) =>
-  el.addEventListener("click", (e) => {
-    if (e.target.localName !== "a") return
+  el.addEventListener('click', (e) => {
+    if (e.target.localName !== 'a') return
 
     // permitir scroll
-    body.style.overflow = "visible"
+    body.style.overflow = 'visible'
 
     // cerrar navbar
-    navbar.classList.remove("active")
+    navbar.classList.remove('active')
   })
 )
 
 // ABRIR NAVBAR SCROLL ON SCROLL
-const headernormal = document.querySelector(".header-normal")
-const headerscroll = document.querySelector(".header-scroll")
+const headernormal = document.querySelector('.header-normal')
+const headerscroll = document.querySelector('.header-scroll')
 
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
   const currentScrollPos = window.pageYOffset
 
   if (currentScrollPos > 30) {
-    headernormal.firstElementChild.classList.add("animate-header")
-    headernormal.style.display = "none"
-    headerscroll.style.display = "block"
+    headernormal.firstElementChild.classList.add('animate-header')
+    headernormal.style.display = 'none'
+    headerscroll.style.display = 'block'
   } else {
-    headernormal.style.display = "block"
-    headerscroll.style.display = "none"
+    headernormal.style.display = 'block'
+    headerscroll.style.display = 'none'
   }
 })
 
@@ -115,11 +115,7 @@ class SpecCarrousel {
   constructor(classname) {
     this.buttons = document.querySelectorAll(`.carrousel-button.${classname}`)
     this.content = document.querySelectorAll(`.carrousel-content-${classname}`)
-    this.prevMovement = this.content[0].classList.contains(
-      "hq-carrousel-content"
-    )
-      ? 1
-      : 0
+    this.prevMovement = this.content[0].classList.contains('hq-carrousel-content') ? 1 : 0
   }
 
   goTo(n) {
@@ -131,12 +127,12 @@ class SpecCarrousel {
 
     // agregar clase a boton
     this.buttons.forEach((el) => {
-      el.classList.remove("active")
+      el.classList.remove('active')
     })
 
-    this.buttons[direction].classList.add("active")
+    this.buttons[direction].classList.add('active')
 
-    if (this.buttons[0].classList.contains("team")) {
+    if (this.buttons[0].classList.contains('team')) {
       direction = n * 2
     }
 
@@ -153,9 +149,7 @@ class Carrousel {
   constructor(classname) {
     this.content = document.querySelectorAll(`.carrousel-content-${classname}`)
     this.buttons = document.querySelectorAll(`.carrousel-arrow-${classname}`)
-    this.containerWidth = document.querySelector(
-      `.clientes-logos-content.animate`
-    ).offsetWidth
+    this.containerWidth = document.querySelector('.clientes-logos-content.animate').offsetWidth
     this.carWidth = 700
     this.curPos = 0
     this.averageSize = this.carWidth / this.content.length
@@ -173,38 +167,33 @@ class Carrousel {
   }
 
   calcularPosicion(dir) {
-    return dir === -1
-      ? this.curPos + this.averageSize
-      : this.curPos - this.averageSize
+    return dir === -1 ? this.curPos + this.averageSize : this.curPos - this.averageSize
   }
 
   activarFlechas() {
     this.buttons.forEach((el) => {
-      el.classList.remove("inactive")
+      el.classList.remove('inactive')
     })
   }
 
   desactivarFlecha(n) {
-    this.buttons[n].classList.add("inactive")
+    this.buttons[n].classList.add('inactive')
   }
 
   goTo(n) {
-    if (n === 1 && !this.buttons[1].classList.contains("inactive")) {
+    if (n === 1 && !this.buttons[1].classList.contains('inactive')) {
       this.activarFlechas()
 
       this.content.forEach((el) => {
         el.style.transform = `translateX(${this.curPos - this.averageSize}px)`
       })
 
-      if (
-        this.curPos - this.averageSize <=
-        0 - (this.carWidth + this.averageSize - this.containerWidth)
-      ) {
+      if (this.curPos - this.averageSize <= 0 - (this.carWidth + this.averageSize - this.containerWidth)) {
         this.desactivarFlecha(1)
       }
 
       return true
-    } else if (n === -1 && !this.buttons[0].classList.contains("inactive")) {
+    } else if (n === -1 && !this.buttons[0].classList.contains('inactive')) {
       this.activarFlechas()
 
       this.content.forEach((el) => {
@@ -256,26 +245,24 @@ function ChangeLogoCar(classname, dir) {
 }
 
 // AGREGAR DRAG EVENT CARROUSELS CONTAINERS
-const carrouselsContainers = document.querySelectorAll(".carrousel-container")
+const carrouselsContainers = document.querySelectorAll('.carrousel-container')
 
 carrouselsContainers.forEach((el) => {
-  let itemclass = ""
+  let itemclass = ''
   let startTouchX = 0
 
-  el.addEventListener("touchstart", (e) => {
+  el.addEventListener('touchstart', (e) => {
     // e.preventDefault()
     // e.stopPropagation()
 
     let classindex = 2
-    el.classList.forEach((el, i) =>
-      el === "carrousel-container" ? (classindex = i + 1) : ""
-    )
+    el.classList.forEach((el, i) => (el === 'carrousel-container' ? (classindex = i + 1) : ''))
     itemclass = el.classList[classindex]
     startTouchX = e.changedTouches[0].clientX
   })
 
-  el.addEventListener("touchend", (e) => touchEnd(e))
-  el.addEventListener("touchcancel", (e) => touchEnd(e))
+  el.addEventListener('touchend', (e) => touchEnd(e))
+  el.addEventListener('touchcancel', (e) => touchEnd(e))
 
   function touchEnd(e) {
     // e.preventDefault()
@@ -285,13 +272,13 @@ carrouselsContainers.forEach((el) => {
     const movement = startTouchX - finalTouchX
 
     if (movement > 30) {
-      if (itemclass === "partner" || itemclass === "cliente") {
+      if (itemclass === 'partner' || itemclass === 'cliente') {
         ChangeLogoCar(itemclass, 1)
       } else {
         ChangeCarrContent(1, itemclass, true)
       }
     } else if (movement < -30) {
-      if (itemclass === "partner" || itemclass === "cliente") {
+      if (itemclass === 'partner' || itemclass === 'cliente') {
         ChangeLogoCar(itemclass, -1)
       } else {
         ChangeCarrContent(-1, itemclass, true)
@@ -301,8 +288,8 @@ carrouselsContainers.forEach((el) => {
 })
 
 // CARROUSEL LOOP
-const carCliente = document.querySelector(".carrousel-content-cliente")
-const carPartner = document.querySelector(".carrousel-content-partner")
+const carCliente = document.querySelector('.carrousel-content-cliente')
+const carPartner = document.querySelector('.carrousel-content-partner')
 
 function carLoop(clase, curDir) {
   let dir = curDir
@@ -313,13 +300,13 @@ function carLoop(clase, curDir) {
 
   // si el primer boton esta desabilitado y el segundo habilitado
   if (
-    carrState[clase].buttons[0].classList.contains("inactive") &&
-    !carrState[clase].buttons[1].classList.contains("inactive")
+    carrState[clase].buttons[0].classList.contains('inactive') &&
+    !carrState[clase].buttons[1].classList.contains('inactive')
   ) {
     dir = 1
   } else if (
-    carrState[clase].buttons[1].classList.contains("inactive") &&
-    !carrState[clase].buttons[0].classList.contains("inactive")
+    carrState[clase].buttons[1].classList.contains('inactive') &&
+    !carrState[clase].buttons[0].classList.contains('inactive')
   ) {
     dir = -1
   }
@@ -338,8 +325,8 @@ function carLoop(clase, curDir) {
 
 if (carCliente) {
   ;[carCliente, carPartner].forEach((el) =>
-    el.addEventListener("animationend", (e) => {
-      const clase = e.target.classList[1].split("-")[2]
+    el.addEventListener('animationend', (e) => {
+      const clase = e.target.classList[1].split('-')[2]
       setTimeout(() => {
         carLoop(clase)
       }, 500)
@@ -348,30 +335,28 @@ if (carCliente) {
 }
 
 // CASOS HTML
-const arrowbtns = document.querySelectorAll(".casos-arrow-container")
+const arrowbtns = document.querySelectorAll('.casos-arrow-container')
 
 arrowbtns.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    const casoscardinfo = document.querySelector(
-      `.casos-info-container.${e.target.classList[1]}`
-    )
+  el.addEventListener('click', (e) => {
+    const casoscardinfo = document.querySelector(`.casos-info-container.${e.target.classList[1]}`)
 
     HandleOpen(casoscardinfo)
-    HandleOpen(e.target, "down")
-    HandleOpen(e.target, "up")
+    HandleOpen(e.target, 'down')
+    HandleOpen(e.target, 'up')
   })
 })
 
 // BLOG HTML
-const menu = document.querySelector(".blog-more-container")
-const menucontent = document.querySelector(".blog-links-container")
-const menubtn = document.querySelector(".blog-more-container")
-const inputcontainer = document.querySelector(".blog-input-container")
-const searchbtn = document.querySelector(".blog-search-container")
+const menu = document.querySelector('.blog-more-container')
+const menucontent = document.querySelector('.blog-links-container')
+const menubtn = document.querySelector('.blog-more-container')
+const inputcontainer = document.querySelector('.blog-input-container')
+const searchbtn = document.querySelector('.blog-search-container')
 
 // ABRIR MENU
 if (menu) {
-  menu.addEventListener("click", () => {
+  menu.addEventListener('click', () => {
     HandleClose(inputcontainer)
     HandleOpen(menucontent)
     HandleOpen(menubtn)
@@ -380,7 +365,7 @@ if (menu) {
 
 // ABRIR INPUT
 if (searchbtn) {
-  searchbtn.addEventListener("click", () => {
+  searchbtn.addEventListener('click', () => {
     HandleClose(menucontent)
     HandleClose(menubtn)
     HandleOpen(inputcontainer)
@@ -388,12 +373,12 @@ if (searchbtn) {
 }
 
 function HandleClose(item) {
-  if (item.classList.contains("active")) {
-    item.classList.remove("active")
+  if (item.classList.contains('active')) {
+    item.classList.remove('active')
   }
 }
 
-function HandleOpen(item, clase = "active") {
+function HandleOpen(item, clase = 'active') {
   if (item.classList.contains(clase)) {
     item.classList.remove(clase)
   } else {
@@ -402,10 +387,8 @@ function HandleOpen(item, clase = "active") {
 }
 
 // EXPERTISE HTML
-const nuestraExpertiuseItem = document.querySelectorAll(
-  ".nuestra-expertise-item"
-)
+const nuestraExpertiuseItem = document.querySelectorAll('.nuestra-expertise-item')
 
 nuestraExpertiuseItem.forEach((el) => {
-  el.addEventListener("click", (e) => console.log(e))
+  el.addEventListener('click', (e) => console.log(e))
 })

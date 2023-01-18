@@ -9,13 +9,13 @@ html {
   margin: 0;
 }
 ul {
-  padding-left: 40px;
+  padding-left: 10px;
   padding-bottom: 10px;
+  font-size: 12px;
 }
 li {
-  /* list-style-image: url("/static/img/checkcircwine.svg"); */
   margin: 0;
-  padding: 10px 0 10px 40px;
+  padding: 10px 0 10px 30px;
   list-style: none;
   background-image: url("/static/img/checkcircwine.svg");
   background-repeat: no-repeat;
@@ -244,32 +244,31 @@ html {
   }
 }
 .expertise-item-container {
-  border-radius: 100%;
   min-width: 100%;
   transition: transform 200ms ease, background 200ms ease;
   cursor: pointer;
   max-height: 450px;
   display: flex;
+  flex-direction: column;
   background-color: #f6f6f6;
   background-size: cover;
-  border-radius: 100%;
-}
-.expertisepage-expertise-container
-  .expertisepage-expertise-content
-  .expertise-item-container::before {
-  content: "";
-  background-image: var(--bgimg);
-  background-color: #f6f6f6;
-  background-size: cover;
-  border-radius: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.7;
 }
 @media (min-width: 680px) {
+  .expertisepage-expertise-container
+    .expertisepage-expertise-content
+    .expertise-item-container::before {
+    content: "";
+    background-image: var(--bgimg);
+    background-color: #f6f6f6;
+    background-size: cover;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+  }
   .expertise-item-container {
     width: 160px;
     min-width: 150px;
@@ -298,15 +297,13 @@ html {
   align-items: center;
   z-index: 1;
 }
-.expertise-item-container:hover {
+/* .expertise-item-container:hover {
   background-color: #93358d;
 }
-.expertisepage-expertise-container
-  .expertisepage-expertise-content
-  .expertise-item-container:hover::before {
+.expertisepage-expertise-container .expertisepage-expertise-content .expertise-item-container:hover::before {
   opacity: 0;
   background-color: #93358d;
-}
+} */
 .expertise-item-container:hover a {
   color: white;
 }
@@ -396,7 +393,7 @@ html {
   .expertise-item-icon-container {
   width: 40px;
   height: 40px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -467,7 +464,6 @@ html {
   font-size: 12px;
   color: #54565a;
   line-height: 1.8;
-  height: 150px;
 }
 @media (min-width: 1080px) {
   .expertise-item-container
@@ -522,23 +518,22 @@ html {
   margin-left: 30px;
   border: 1px solid #93358d;
 }
-.expertise-info-container {
+/* .expertise-info-container {
   max-height: 0;
   overflow: hidden;
   transition: max-height 200ms ease;
 }
 .expertise-info-container.active {
   max-height: 500px;
-}
+} */
 .expertise-info-container .expertise-info-content {
-  padding: 20px;
   border: 1px solid #ededed;
   background: #fff;
 }
 .expertise-info-container .expertise-info-content h5 {
+  padding: 20px;
   text-transform: uppercase;
   color: #93358d;
-  /* color: #570b52; */
   font-size: 16px;
   margin-bottom: 20px;
 }
@@ -1774,6 +1769,7 @@ main {
 }
 .expertise-item-container-page .expertise-arrow-container {
   margin: 0 auto;
+  display: none;
 }
 @media (min-width: 680px) {
   .expertise-item-container-page .expertise-arrow-container {
@@ -1786,18 +1782,18 @@ main {
   border: 1px solid #93358d;
   border-radius: 50%;
 }
-.expertise-item-container-page .expertise-info-container {
-  max-height: 0;
+.nuestra-expertise-item .nuestra-expertise-description {
+  /* max-height: 0;
   overflow: hidden;
-  transition: max-height 200ms ease;
+  transition: max-height 200ms ease; */
+  line-height: 1.8;
 }
-.expertise-item-container-page .expertise-info-container.active {
+/* .nuestra-expertise-item .nuestra-expertise-description.active {
   max-height: 500px;
-}
+} */
 .expertise-item-container-page
   .expertise-info-container
   .expertise-info-content {
-  padding: 20px;
   border: 1px solid #ededed;
   background: #fff;
 }
@@ -1805,6 +1801,7 @@ main {
   .expertise-info-container
   .expertise-info-content
   h5 {
+  padding: 20px;
   text-transform: uppercase;
   color: #570b52;
   font-size: 16px;
@@ -2076,10 +2073,16 @@ main {
   }
 }
 .expertise-info-content .nuestra-expertise-item {
-  margin-bottom: 20px;
+  margin: 10px 10px 30px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  border: 1px solid #d9d9d9;
+  border-radius: 3%;
+  box-shadow: 0 0 7px rgb(0, 0, 0, 0.2);
 }
 .expertise-info-content h2 {
   color: #570b52;
+  margin-bottom: 12px;
 }
 .expertisepage-expertise-container.section.section-padding {
   display: none;
