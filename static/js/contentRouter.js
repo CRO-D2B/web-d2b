@@ -37,8 +37,7 @@ const getMonthName = (month) => {
 }
 
 const appendContent = (id, content) => {
-  document.getElementById(id).innerHTML =
-    content + document.getElementById(id).innerHTML
+  document.getElementById(id).innerHTML = content + document.getElementById(id).innerHTML
 }
 
 const appendContentLinear = (id, content) => {
@@ -100,19 +99,12 @@ const renderExpertise = (data, index) => {
 const renderExpertiseNoDescription = (data, index) => {
   if (index < data.length) {
     getImage(data[index].imagen).then((image) => {
-      let div = document.createElement("div")
-      div.classList.add("expertise-item-container")
-      div.style.setProperty("--bgimg", "url(" + image + ")")
-      div.innerHTML =
-        '<a href="/expertise/' +
-        data[index].url_segment +
-        '">\
-							<div class="expertise-item-content-container">\
-								<h5>' +
-        data[index].titulo +
-        "</h5></div> </a>"
-
-      actualAppendContent("expertise_data_container", div)
+      let a = document.createElement("a")
+      a.classList.add("expertise-item-container")
+      a.style.setProperty("--bgimg", "url(" + image + ")")
+      a.href = "/expertise/" + data[index].url_segment
+      a.textContent = data[index].titulo
+      actualAppendContent("expertise_data_container", a)
       renderExpertiseNoDescription(data, index + 1)
     })
   }
@@ -145,35 +137,31 @@ const renderPartners = (data, index) => {
 
 const renderCasos = (data, index) => {
   if (index < data.length) {
-    getRelated("caso_categoria_casos", "caso_id", data[index].id).then(
-      (categoryRel) => {
-        getSingleItem(
-          "categoria_casos",
-          categoryRel.data[0].categoria_casos_id
-        ).then((category) => {
-          getImage(category.data.icono).then((image) => {
-            let a = document.createElement("a")
-            a.href = "/casos/" + data[index].url_segment
-            a.classList.add("casos-item-container", "carrousel-content-casos")
-            a.innerHTML =
-              '<div class="casos-item-content">\
+    getRelated("caso_categoria_casos", "caso_id", data[index].id).then((categoryRel) => {
+      getSingleItem("categoria_casos", categoryRel.data[0].categoria_casos_id).then((category) => {
+        getImage(category.data.icono).then((image) => {
+          let a = document.createElement("a")
+          a.href = "/casos/" + data[index].url_segment
+          a.classList.add("casos-item-container", "carrousel-content-casos")
+          a.innerHTML =
+            '<div class="casos-item-content">\
                                 <div class="casos-item-title-container">\
                                     <span>' +
-              category.data.titulo +
-              '</span>\
+            category.data.titulo +
+            '</span>\
                                     <div class="casos-item-icon-container">\
                                         <img src="' +
-              image +
-              '" alt="">\
+            image +
+            '" alt="">\
                                     </div>\
                                 </div>\
                                 <div class="casos-item-content-container">\
                                     <h5>' +
-              data[index].titulo +
-              "</h5>\
+            data[index].titulo +
+            "</h5>\
                                     <p>" +
-              data[index].bajada +
-              '</p>\
+            data[index].bajada +
+            '</p>\
                                 </div>\
                                 <div class="casos-link-container">\
                                     <span>Ver caso completo</span>\
@@ -182,12 +170,11 @@ const renderCasos = (data, index) => {
                                     </div>\
                                 </div>\
                             </div>'
-            actualAppendContent("casos_container", a)
-            renderCasos(data, index + 1)
-          })
+          actualAppendContent("casos_container", a)
+          renderCasos(data, index + 1)
         })
-      }
-    )
+      })
+    })
   }
 }
 
@@ -256,22 +243,13 @@ const renderArticulosRelacionados = (data) => {
         replaceContent("articulo_1_titulo", articulo.data.titulo)
         replaceContent("articulo_1_mobile_titulo", articulo.data.titulo)
         replaceContent("articulo_1_fecha", articulo.data.fecha_para_mostrar)
-        replaceContent(
-          "articulo_1_mobile_fecha",
-          articulo.data.fecha_para_mostrar
-        )
+        replaceContent("articulo_1_mobile_fecha", articulo.data.fecha_para_mostrar)
         replaceContent("articulo_1_autor", articulo.data.autor)
         replaceContent("articulo_1_mobile_autor", articulo.data.autor)
-        replaceContent(
-          "articulo_1_extracto",
-          articulo.data.extracto.substring(0, 72) + "..."
-        )
+        replaceContent("articulo_1_extracto", articulo.data.extracto.substring(0, 72) + "...")
         replaceContent("articulo_1_mobile_extracto", articulo.data.extracto)
         replaceLink("articulo_1_link", "/blog/" + articulo.data.url_segment)
-        replaceLink(
-          "articulo_1_mobile_link",
-          "/blog/" + articulo.data.url_segment
-        )
+        replaceLink("articulo_1_mobile_link", "/blog/" + articulo.data.url_segment)
       } else if (index == 1) {
         getImage(articulo.data.imagen_principal).then((image) => {
           replaceBgImage("articulo_2_image", image)
@@ -280,18 +258,12 @@ const renderArticulosRelacionados = (data) => {
         replaceContent("articulo_2_titulo", articulo.data.titulo)
         replaceContent("articulo_2_mobile_titulo", articulo.data.titulo)
         replaceContent("articulo_2_fecha", articulo.data.fecha_para_mostrar)
-        replaceContent(
-          "articulo_2_mobile_fecha",
-          articulo.data.fecha_para_mostrar
-        )
+        replaceContent("articulo_2_mobile_fecha", articulo.data.fecha_para_mostrar)
         replaceContent("articulo_2_autor", articulo.data.autor)
         replaceContent("articulo_2_mobile_autor", articulo.data.autor)
         replaceContent("articulo_2_mobile_extracto", articulo.data.extracto)
         replaceLink("articulo_2_link", "/blog/" + articulo.data.url_segment)
-        replaceLink(
-          "articulo_2_mobile_link",
-          "/blog/" + articulo.data.url_segment
-        )
+        replaceLink("articulo_2_mobile_link", "/blog/" + articulo.data.url_segment)
       } else {
         getImage(articulo.data.imagen_principal).then((image) => {
           replaceBgImage("articulo_3_image", image)
@@ -300,22 +272,13 @@ const renderArticulosRelacionados = (data) => {
         replaceContent("articulo_3_titulo", articulo.data.titulo)
         replaceContent("articulo_3_mobile_titulo", articulo.data.titulo)
         replaceContent("articulo_3_fecha", articulo.data.fecha_para_mostrar)
-        replaceContent(
-          "articulo_3_mobile_fecha",
-          articulo.data.fecha_para_mostrar
-        )
+        replaceContent("articulo_3_mobile_fecha", articulo.data.fecha_para_mostrar)
         replaceContent("articulo_3_autor", articulo.data.autor)
         replaceContent("articulo_3_mobile_autor", articulo.data.autor)
-        replaceContent(
-          "articulo_3_extracto",
-          articulo.data.extracto.substring(0, 180) + "..."
-        )
+        replaceContent("articulo_3_extracto", articulo.data.extracto.substring(0, 180) + "...")
         replaceContent("articulo_3_mobile_extracto", articulo.data.extracto)
         replaceLink("articulo_3_link", "/blog/" + articulo.data.url_segment)
-        replaceLink(
-          "articulo_3_mobile_link",
-          "/blog/" + articulo.data.url_segment
-        )
+        replaceLink("articulo_3_mobile_link", "/blog/" + articulo.data.url_segment)
       }
     })
   })
@@ -324,18 +287,8 @@ const renderArticulosRelacionados = (data) => {
 const renderCategorias = (data, index) => {
   if (index < data.length) {
     let li = document.createElement("li")
-    li.innerHTML =
-      '<a href="/blog/' +
-      data[index].url_segment +
-      '">' +
-      data[index].title +
-      "</a>"
-    let stringLi =
-      '<li><a href="/blog/' +
-      data[index].url_segment +
-      '">' +
-      data[index].title +
-      "</a></li>"
+    li.innerHTML = '<a href="/blog/' + data[index].url_segment + '">' + data[index].title + "</a>"
+    let stringLi = '<li><a href="/blog/' + data[index].url_segment + '">' + data[index].title + "</a></li>"
     appendContent("categorias_container", stringLi)
     appendContent("categorias_container_sidebar", stringLi)
     actualAppendContent("categorias_container_mobile_sidebar", li)
@@ -417,23 +370,14 @@ const renderArticulos = (data, index) => {
 
 const renderArticulosRecientes = (data) => {
   data.forEach((articulo) => {
-    let li =
-      '<li><a href="/blog/' +
-      articulo.url_segment +
-      '">' +
-      articulo.titulo +
-      "</a><li>"
+    let li = '<li><a href="/blog/' + articulo.url_segment + '">' + articulo.titulo + "</a><li>"
     appendContent("entradas_recientes", li)
     appendContent("entradas_recientes_mobile", li)
   })
 }
 
 const renderArchivos = (data) => {
-  const fechas = [
-    ...new Set(
-      data.map((articulo) => articulo.fecha_para_mostrar.substr(0, 7))
-    ),
-  ]
+  const fechas = [...new Set(data.map((articulo) => articulo.fecha_para_mostrar.substr(0, 7)))]
   fechas.forEach((fecha) => {
     const año = fecha.substr(0, 4)
     const mesNumero = fecha.substr(5, 2)
@@ -533,10 +477,7 @@ const renderArticuloSingle = (articulo) => {
 
 const renderCasoSingle = (caso) => {
   getRelated("caso_categoria_casos", "caso_id", caso.id).then((categoryRel) => {
-    getSingleItem(
-      "categoria_casos",
-      categoryRel.data[0].categoria_casos_id
-    ).then((category) => {
+    getSingleItem("categoria_casos", categoryRel.data[0].categoria_casos_id).then((category) => {
       getImage(category.data.icono).then((image) => {
         replaceImage("imagen_categoria", image)
         replaceImage("mobile_imagen_categoria", image)
@@ -576,15 +517,8 @@ const renderCasoSingle = (caso) => {
 }
 
 const renderExpertiseSingle = (expertise) => {
-  getRelated(
-    "dev_expertise_categoria_dev_expertise",
-    "dev_expertise_id",
-    expertise.id
-  ).then((categoryRel) => {
-    getSingleItem(
-      "categoria_dev_expertise",
-      categoryRel.data[0].categoria_dev_expertise_id
-    ).then((category) => {
+  getRelated("dev_expertise_categoria_dev_expertise", "dev_expertise_id", expertise.id).then((categoryRel) => {
+    getSingleItem("categoria_dev_expertise", categoryRel.data[0].categoria_dev_expertise_id).then((category) => {
       getImage(category.data.icono).then((image) => {
         replaceImage("imagen_categoria", image)
         replaceImage("mobile_imagen_categoria", image)
@@ -593,27 +527,46 @@ const renderExpertiseSingle = (expertise) => {
       replaceContent("mobile_categoria", category.data.titulo)
     })
   })
-  replaceContent("bajada", expertise.texto_principal.replace("\n", "<br><br>"))
-  replaceContent(
-    "mobile_bajada",
-    expertise.texto_principal.replace("\n", "<br><br>")
-  )
+  let contentWithBr = expertise.texto_principal.replace("\n", "<br><br>")
+  replaceContent("bajada", contentWithBr)
+  replaceContent("mobile_bajada", contentWithBr)
   getNuestraExpertise(expertise.id).then((data) => {
     data.data.forEach((item) => {
-      let render =
-        "<div class='nuestra-expertise-item'><h2>" +
+      let seeMoreRender = document.createElement("a")
+      seeMoreRender.textContent = "Ver más ↓"
+      seeMoreRender.addEventListener("click", (e) => {
+        let description = e.target.previousSibling.previousSibling
+        description.classList.toggle("active")
+        e.target.textContent = description.className.includes("active") ? "Ver menos ↑" : "Ver más ↓"
+      })
+      let render = document.createElement("div")
+      render.className = "nuestra-expertise-item"
+      render.innerHTML =
+        "<h2>" +
         item.titulo +
         "</h2><div class='nuestra-expertise-description'>" +
         item.descripcion +
-        "</div></div>"
-      let renderMobile =
-        "<div class='nuestra-expertise-item'><h2>" +
+        "</div><div class='gradiente'></div>"
+      render.append(seeMoreRender)
+      let seeMoreRenderMobile = document.createElement("a")
+      seeMoreRenderMobile.textContent = "Ver más ↓"
+      seeMoreRenderMobile.addEventListener("click", (e) => {
+        e.target.previousSibling.previousSibling.classList.toggle("active")
+        e.target.textContent = e.target.previousSibling.previousSibling.className.includes("active")
+          ? "Ver menos ↑"
+          : "Ver más ↓"
+      })
+      let renderMobile = document.createElement("div")
+      renderMobile.className = "nuestra-expertise-item"
+      renderMobile.innerHTML =
+        "<h2>" +
         item.titulo +
         "</h2><div class='nuestra-expertise-description'>" +
         item.descripcion +
-        "</div></div>"
-      appendContentLinear("mobile_resultados_container", renderMobile)
-      appendContentLinear("resultados_container", render)
+        "</div><div class='gradiente'></div>"
+      renderMobile.append(seeMoreRenderMobile)
+      actualAppendContent("mobile_resultados_container", renderMobile)
+      actualAppendContent("resultados_container", render)
     })
   })
 }
@@ -691,17 +644,12 @@ switch (segments[1]) {
       renderArticulosRecientes(data.data.slice(0, 5))
       renderArchivos(data.data)
       if (!segments[2]) {
-        let headers = [
-          { tag: "<title>Blog | D2B</title>" },
-          { tag: '<meta name="title" content="Blog | D2B" />' },
-        ]
+        let headers = [{ tag: "<title>Blog | D2B</title>" }, { tag: '<meta name="title" content="Blog | D2B" />' }]
         renderHeaders(headers)
         if (window.location.search) {
           const search = window.location.search.substring(8)
           const filteredData = data.data.filter(
-            (articulo) =>
-              articulo.titulo.includes(search) ||
-              articulo.cuerpo.includes(search)
+            (articulo) => articulo.titulo.includes(search) || articulo.cuerpo.includes(search)
           )
           renderArticulos(filteredData, 0)
           document.getElementById("search_input").value = search
@@ -709,23 +657,15 @@ switch (segments[1]) {
           renderArticulos(data.data, 0)
         }
       } else if (segments[2].includes("archivo")) {
-        let headers = [
-          { tag: "<title>Blog | D2B</title>" },
-          { tag: '<meta name="title" content="Blog | D2B" />' },
-        ]
+        let headers = [{ tag: "<title>Blog | D2B</title>" }, { tag: '<meta name="title" content="Blog | D2B" />' }]
         renderHeaders(headers)
         const fecha = segments[2].substr(-7)
-        const filteredData = data.data.filter((articulo) =>
-          articulo.fecha_para_mostrar.includes(fecha)
-        )
+        const filteredData = data.data.filter((articulo) => articulo.fecha_para_mostrar.includes(fecha))
         renderArticulos(filteredData, 0)
       } else {
         getSingleArticulo(segments[2]).then((articulo) => {
           if (!articulo) {
-            let headers = [
-              { tag: "<title>Blog | D2B</title>" },
-              { tag: '<meta name="title" content="Blog | D2B" />' },
-            ]
+            let headers = [{ tag: "<title>Blog | D2B</title>" }, { tag: '<meta name="title" content="Blog | D2B" />' }]
             renderHeaders(headers)
             getArticulosPorCategoria(segments[2]).then((articulos) => {
               renderArticulos(articulos.data, 0)
@@ -739,18 +679,12 @@ switch (segments[1]) {
                 let headers = [
                   { tag: "<title>" + articulo.titulo + " | D2B</title>" },
                   {
-                    tag:
-                      '<meta name="title" content="' +
-                      articulo.titulo +
-                      ' | D2B" />',
+                    tag: '<meta name="title" content="' + articulo.titulo + ' | D2B" />',
                   },
                 ]
                 if (articulo.extracto) {
                   headers.push({
-                    tag:
-                      '<meta name="description" content="' +
-                      articulo.extracto +
-                      '" />',
+                    tag: '<meta name="description" content="' + articulo.extracto + '" />',
                   })
                 }
 
@@ -765,9 +699,7 @@ switch (segments[1]) {
   case "casos":
     getCasos().then((json) => {
       renderCasos(json.data, 0)
-      const caso = json.data.filter(
-        (caso) => caso.url_segment == segments[2]
-      )[0]
+      const caso = json.data.filter((caso) => caso.url_segment == segments[2])[0]
 
       getHeaders("caso", caso.id).then((data) => {
         if (data.data.length) {
@@ -792,9 +724,7 @@ switch (segments[1]) {
   case "expertise":
     getExpertise().then((json) => {
       renderExpertiseNoDescription(json.data, 0)
-      const expertise = json.data.filter(
-        (exp) => exp.url_segment == segments[2]
-      )[0]
+      const expertise = json.data.filter((exp) => exp.url_segment == segments[2])[0]
 
       getHeaders("dev_expertise", expertise.id).then((data) => {
         if (data.data.length) {
@@ -803,16 +733,10 @@ switch (segments[1]) {
           let headers = [
             { tag: "<title>" + expertise.titulo + " | D2B</title>" },
             {
-              tag:
-                '<meta name="title" content="' +
-                expertise.titulo +
-                ' | D2B" />',
+              tag: '<meta name="title" content="' + expertise.titulo + ' | D2B" />',
             },
             {
-              tag:
-                '<meta name="description" content="' +
-                expertise.subtitulo +
-                '" />',
+              tag: '<meta name="description" content="' + expertise.subtitulo + '" />',
             },
           ]
 
@@ -841,9 +765,6 @@ switch (segments[1]) {
     renderHeaders(contactHeaders)
     break
   default:
-    let defaultHeaders = [
-      { tag: "<title>Home | D2B</title>" },
-      { tag: '<meta name="title" content="Home | D2B" />' },
-    ]
+    let defaultHeaders = [{ tag: "<title>Home | D2B</title>" }, { tag: '<meta name="title" content="Home | D2B" />' }]
     renderHeaders(defaultHeaders)
 }
