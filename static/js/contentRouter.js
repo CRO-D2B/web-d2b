@@ -527,48 +527,35 @@ const renderExpertiseSingle = (expertise) => {
       replaceContent("mobile_categoria", category.data.titulo)
     })
   })
-  let contentWithBr = expertise.texto_principal.replace("\n", "<br><br>")
+  let contentWithBr = expertise.texto_principal.replaceAll("\n", "<br><br>")
   replaceContent("bajada", contentWithBr)
   replaceContent("mobile_bajada", contentWithBr)
-  getNuestraExpertise(expertise.id).then((data) => {
+  getNuestraExpertise(expertise.id).then((data) =>
     data.data.forEach((item) => {
-      let seeMoreRender = document.createElement("a")
-      seeMoreRender.textContent = "Ver más ↓"
-      seeMoreRender.addEventListener("click", (e) => {
-        let description = e.target.previousSibling.previousSibling
-        description.classList.toggle("active")
-        e.target.textContent = description.className.includes("active") ? "Ver menos ↑" : "Ver más ↓"
-      })
       let render = document.createElement("div")
       render.className = "nuestra-expertise-item"
       render.innerHTML =
-        "<h2>" +
-        item.titulo +
-        "</h2><div class='nuestra-expertise-description'>" +
-        item.descripcion +
-        "</div><div class='gradiente'></div>"
-      render.append(seeMoreRender)
-      let seeMoreRenderMobile = document.createElement("a")
-      seeMoreRenderMobile.textContent = "Ver más ↓"
-      seeMoreRenderMobile.addEventListener("click", (e) => {
-        e.target.previousSibling.previousSibling.classList.toggle("active")
-        e.target.textContent = e.target.previousSibling.previousSibling.className.includes("active")
-          ? "Ver menos ↑"
-          : "Ver más ↓"
-      })
+        "<h5>" + item.titulo + "</h5><div class='nuestra-expertise-description'>" + item.descripcion + "</div>"
       let renderMobile = document.createElement("div")
       renderMobile.className = "nuestra-expertise-item"
       renderMobile.innerHTML =
-        "<h2>" +
-        item.titulo +
-        "</h2><div class='nuestra-expertise-description'>" +
-        item.descripcion +
-        "</div><div class='gradiente'></div>"
-      renderMobile.append(seeMoreRenderMobile)
+        "<h5>" + item.titulo + "</h5><div class='nuestra-expertise-description'>" + item.descripcion + "</div>"
       actualAppendContent("mobile_resultados_container", renderMobile)
       actualAppendContent("resultados_container", render)
     })
-  })
+  )
+  getMasInfoExpertise(expertise.id).then((data) =>
+    data.data.forEach((info) => {
+      let render = document.createElement("div")
+      render.className = "mas-info-item"
+      render.innerHTML = "<h5>" + info.titulo + "<h5><div class='mas-info-respuesta'>" + info.respuesta + "</div>"
+      let renderMobile = document.createElement("div")
+      renderMobile.className = "mas-info-item"
+      renderMobile.innerHTML = "<h5>" + info.titulo + "<h5><div class='mas-info-respuesta'>" + info.respuesta + "</div>"
+      actualAppendContent("mobile_extra_info_container", renderMobile)
+      actualAppendContent("extra_info_container", render)
+    })
+  )
 }
 
 const renderHeaders = (headers) => {
