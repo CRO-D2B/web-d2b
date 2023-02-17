@@ -530,32 +530,54 @@ const renderExpertiseSingle = (expertise) => {
   let contentWithBr = expertise.texto_principal.replaceAll("\n", "<br><br>")
   replaceContent("bajada", contentWithBr)
   replaceContent("mobile_bajada", contentWithBr)
-  getNuestraExpertise(expertise.id).then((data) =>
+  getNuestraExpertise(expertise.id).then((data) => {
+    localStorage.setItem("actualExpertiseCard", 1)
+    localStorage.setItem("expertiseCards", data.data.length)
     data.data.forEach((item) => {
       let render = document.createElement("div")
-      render.className = "nuestra-expertise-item"
+      render.className = "nuestra-expertise-item-container"
       render.innerHTML =
-        "<h5>" + item.titulo + "</h5><div class='nuestra-expertise-description'>" + item.descripcion + "</div>"
+        "<div class='nuestra-expertise-item'><h4>" +
+        item.titulo +
+        "</h4><div class='nuestra-expertise-description'>" +
+        item.descripcion +
+        "</div></div>"
       let renderMobile = document.createElement("div")
-      renderMobile.className = "nuestra-expertise-item"
+      renderMobile.className = "nuestra-expertise-item-container"
       renderMobile.innerHTML =
-        "<h5>" + item.titulo + "</h5><div class='nuestra-expertise-description'>" + item.descripcion + "</div>"
-      actualAppendContent("mobile_resultados_container", renderMobile)
-      actualAppendContent("resultados_container", render)
+        "<div class='nuestra-expertise-item'><h4>" +
+        item.titulo +
+        "</h4><div class='nuestra-expertise-description'>" +
+        item.descripcion +
+        "</div></div>"
+      actualAppendContent("mobile_nuestra_expertise_items_container", renderMobile)
+      actualAppendContent("nuestra_expertise_items_container", render)
     })
-  )
-  getMasInfoExpertise(expertise.id).then((data) =>
+  })
+  getMasInfoExpertise(expertise.id).then((data) => {
     data.data.forEach((info) => {
       let render = document.createElement("div")
       render.className = "mas-info-item"
-      render.innerHTML = "<h5>" + info.titulo + "<h5><div class='mas-info-respuesta'>" + info.respuesta + "</div>"
+      render.innerHTML = "<h5>" + info.titulo + "</h5><div class='extra-info-respuesta'>" + info.respuesta + "</div>"
       let renderMobile = document.createElement("div")
-      renderMobile.className = "mas-info-item"
-      renderMobile.innerHTML = "<h5>" + info.titulo + "<h5><div class='mas-info-respuesta'>" + info.respuesta + "</div>"
+      renderMobile.className = "extra-info-item"
+      renderMobile.innerHTML =
+        "<div class='title-container'><h5>" +
+        info.titulo +
+        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-desc border-wine'></div></div></div>\
+        <div class='extra-info-respuesta'>" +
+        info.respuesta +
+        "</div>"
       actualAppendContent("mobile_extra_info_container", renderMobile)
       actualAppendContent("extra_info_container", render)
     })
-  )
+    document.querySelectorAll(".title-container").forEach((title) =>
+      title.addEventListener("click", (e) => {
+        const respuesta = e.target.closest(".title-container")
+        respuesta.nextElementSibling.classList.toggle("extra-info-visible")
+      })
+    )
+  })
 }
 
 const renderHeaders = (headers) => {
