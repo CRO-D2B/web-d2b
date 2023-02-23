@@ -389,13 +389,13 @@ function HandleOpen(item, clase = "active") {
 // EXPERTISE HTML
 const leftArrow = document.querySelector(".left-arrow")
 const rightArrow = document.querySelector(".right-arrow")
-const expertiseCards = Number(localStorage.getItem("expertiseCards"))
+const expertiseCards = Number(sessionStorage.getItem("expertiseCards"))
 const translate = -100
 
 leftArrow.addEventListener("click", () => {
-  const prevCard = Number(localStorage.getItem("actualExpertiseCard"))
+  const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
   const actualCard = prevCard - 1
-  localStorage.setItem("actualExpertiseCard", actualCard)
+  sessionStorage.setItem("actualExpertiseCard", actualCard)
   if (actualCard === 1) leftArrow.classList.toggle("no-visible")
   if (prevCard === expertiseCards) rightArrow.classList.toggle("no-visible")
   document
@@ -404,9 +404,9 @@ leftArrow.addEventListener("click", () => {
 })
 
 rightArrow.addEventListener("click", () => {
-  const prevCard = Number(localStorage.getItem("actualExpertiseCard"))
+  const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
   const actualCard = prevCard + 1
-  localStorage.setItem("actualExpertiseCard", actualCard)
+  sessionStorage.setItem("actualExpertiseCard", actualCard)
   if (actualCard === expertiseCards) rightArrow.classList.toggle("no-visible")
   if (prevCard === 1) leftArrow.classList.toggle("no-visible")
   document

@@ -557,8 +557,14 @@ const renderExpertiseSingle = (expertise) => {
   getMasInfoExpertise(expertise.id).then((data) => {
     data.data.forEach((info) => {
       let render = document.createElement("div")
-      render.className = "mas-info-item"
-      render.innerHTML = "<h5>" + info.titulo + "</h5><div class='extra-info-respuesta'>" + info.respuesta + "</div>"
+      render.className = "extra-info-item"
+      render.innerHTML =
+        "<div class='title-container'><h5>" +
+        info.titulo +
+        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-desc border-wine'></div></div></div>\
+      <div class='extra-info-respuesta'>" +
+        info.respuesta +
+        "</div>"
       let renderMobile = document.createElement("div")
       renderMobile.className = "extra-info-item"
       renderMobile.innerHTML =
