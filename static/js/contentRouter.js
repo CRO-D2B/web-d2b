@@ -532,9 +532,9 @@ const renderExpertiseSingle = (expertise) => {
   replaceContent("bajada", contentWithBr)
   replaceContent("mobile_bajada", contentWithBr)
   getNuestraExpertise(expertise.id).then((data) => {
-    localStorage.setItem("actualExpertiseCard", 1)
-    localStorage.setItem("expertiseCards", data.data.length)
-    data.data.forEach((item) => {
+    sessionStorage.setItem("actualExpertiseCard", 1)
+    sessionStorage.setItem("expertiseCards", data.data.length)
+    data.data.forEach((item, index) => {
       let render = document.createElement("div")
       render.className = "nuestra-expertise-item-container"
       render.innerHTML =
@@ -553,6 +553,9 @@ const renderExpertiseSingle = (expertise) => {
         "</div></div>"
       actualAppendContent("mobile_nuestra_expertise_items_container", renderMobile)
       actualAppendContent("nuestra_expertise_items_container", render)
+      let dot = document.createElement("div")
+      dot.className = index === 0 ? "carrousel-button bg-grey-thin active" : "carrousel-button bg-grey-thin"
+      actualAppendContent("carrousel-buttons", dot)
     })
   })
   getMasInfoExpertise(expertise.id).then((data) => {

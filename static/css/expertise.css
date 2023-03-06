@@ -1833,6 +1833,7 @@ main {
   overflow: hidden;
   justify-content: space-between;
   color: #54565a;
+  margin-bottom: 16px;
 }
 @media (min-width: 680px) {
   .nuestra-expertise-content {
@@ -1878,4 +1879,25 @@ main {
 }
 .arrow-desc {
   transform: rotate(45deg);
+}
+
+.carrousel-buttons-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+}
+.carrousel-buttons-container div {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+.carrousel-buttons-container .carrousel-button.active {
+  background: #93358d;
 }

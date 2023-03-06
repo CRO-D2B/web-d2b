@@ -396,20 +396,24 @@ leftArrow.addEventListener("click", () => {
   const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
   const actualCard = prevCard - 1
   sessionStorage.setItem("actualExpertiseCard", actualCard)
-  if (actualCard === 1) leftArrow.classList.toggle("no-visible")
-  if (prevCard === expertiseCards) rightArrow.classList.toggle("no-visible")
+  if (actualCard === 1) leftArrow.classList.add("no-visible")
+  if (prevCard === expertiseCards) rightArrow.classList.remove("no-visible")
   document
     .querySelectorAll(".nuestra-expertise-item-container")
     .forEach((card) => (card.style.transform = "translateX(" + translate * (actualCard - 1) + "%)"))
+  document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove("active")
+  document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add("active")
 })
 
 rightArrow.addEventListener("click", () => {
   const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
   const actualCard = prevCard + 1
   sessionStorage.setItem("actualExpertiseCard", actualCard)
-  if (actualCard === expertiseCards) rightArrow.classList.toggle("no-visible")
-  if (prevCard === 1) leftArrow.classList.toggle("no-visible")
+  if (actualCard === expertiseCards) rightArrow.classList.add("no-visible")
+  if (prevCard === 1) leftArrow.classList.remove("no-visible")
   document
     .querySelectorAll(".nuestra-expertise-item-container")
     .forEach((card) => (card.style.transform = "translateX(" + translate * (actualCard - 1) + "%)"))
+  document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove("active")
+  document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add("active")
 })
