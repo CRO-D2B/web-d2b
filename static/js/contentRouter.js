@@ -103,7 +103,8 @@ const renderExpertiseNoDescription = (data, index) => {
       a.classList.add("expertise-item-container")
       a.style.setProperty("--bgimg", "url(" + image + ")")
       a.href = "/expertise/" + data[index].url_segment
-      a.textContent = data[index].titulo
+      a.innerHTML =
+        "<div class='purple-border'></div><div class='expertise-item-content'>" + data[index].titulo + "</div>"
       actualAppendContent("expertise_data_container", a)
       renderExpertiseNoDescription(data, index + 1)
     })

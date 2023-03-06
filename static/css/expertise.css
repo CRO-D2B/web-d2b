@@ -1485,14 +1485,13 @@ main {
   }
 }
 .expertisepage-expertise-container .expertisepage-expertise-content a {
+  display: flex;
   min-width: 100%;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 16px;
-  padding: 20px;
-  border-radius: 2%;
+  border-radius: 1%/5%;
   color: #93358d;
-  border-left: 3px solid;
   background-color: #f6f6f6;
 }
 @media (min-width: 680px) {
@@ -1500,6 +1499,15 @@ main {
     min-width: auto;
     width: 48%;
   }
+}
+.expertisepage-expertise-container .expertisepage-expertise-content a .purple-border {
+  background-color: #93358d;
+  width: 3px;
+  border-radius: 50%/2% 0 0 2%;
+}
+.expertisepage-expertise-container .expertisepage-expertise-content a .expertise-item-content {
+  padding: 16px;
+  margin: 0;
 }
 .expertise-item-container-page {
   margin-bottom: 15px;
