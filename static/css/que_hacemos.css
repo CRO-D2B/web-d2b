@@ -1971,11 +1971,9 @@ main {
   position: relative;
   margin-bottom: 15px;
   height: 155px;
-  position: relative;
   outline: 1px solid transparent;
-  transition: outline 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, outline 300ms ease-in-out;
   transform: scale(1);
-  transition: transform 300ms ease-in-out;
 }
 .expertise-container .expertise-content .expertise-data-container .expertise-item-container:hover {
   outline: 1px solid #93358d;

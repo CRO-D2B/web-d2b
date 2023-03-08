@@ -556,6 +556,15 @@ const renderExpertiseSingle = (expertise) => {
       let dot = document.createElement("div")
       dot.className = index === 0 ? "carrousel-button bg-grey-thin active" : "carrousel-button bg-grey-thin"
       actualAppendContent("carrousel-buttons", dot)
+      document.querySelector("#carrousel-buttons").lastElementChild.addEventListener("click", () => {
+        const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
+        const actualCard = index + 1
+        document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove("active")
+        document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add("active")
+        document
+          .querySelector("#mobile_nuestra_expertise_items_container")
+          .scrollTo(index * document.querySelector("#mobile_nuestra_expertise_items_container").offsetWidth, 0)
+      })
     })
   })
   getMasInfoExpertise(expertise.id).then((data) => {
