@@ -565,7 +565,7 @@ const renderExpertiseSingle = (expertise) => {
       render.innerHTML =
         "<div class='title-container'><h5>" +
         info.titulo +
-        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-desc border-wine'></div></div></div>\
+        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-down border-wine'></div></div></div>\
       <div class='extra-info-respuesta'>" +
         info.respuesta +
         "</div>"
@@ -574,7 +574,7 @@ const renderExpertiseSingle = (expertise) => {
       renderMobile.innerHTML =
         "<div class='title-container'><h5>" +
         info.titulo +
-        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-desc border-wine'></div></div></div>\
+        "</h5><div class='extra-info-arrow-container'><div class='arrow arrow-down border-wine'></div></div></div>\
         <div class='extra-info-respuesta'>" +
         info.respuesta +
         "</div>"
@@ -583,8 +583,10 @@ const renderExpertiseSingle = (expertise) => {
     })
     document.querySelectorAll(".title-container").forEach((title) =>
       title.addEventListener("click", (e) => {
-        const respuesta = e.target.closest(".title-container")
-        respuesta.nextElementSibling.classList.toggle("extra-info-visible")
+        const tituloContainer = e.target.closest(".title-container")
+        tituloContainer.nextElementSibling.classList.toggle("extra-info-visible")
+        tituloContainer.lastElementChild.firstElementChild.classList.toggle("arrow-down")
+        tituloContainer.lastElementChild.firstElementChild.classList.toggle("arrow-up")
       })
     )
   })

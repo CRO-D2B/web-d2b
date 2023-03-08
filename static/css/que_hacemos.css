@@ -1,6 +1,6 @@
 body,
 html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }
 * {
@@ -158,7 +158,7 @@ html {
   font-weight: 400;
   color: #fff;
   font-size: 13px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   padding: 22px 20px;
   width: 200px;
@@ -179,7 +179,7 @@ html {
   }
 }
 .btn::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 7%;
   top: 44.5%;
@@ -319,7 +319,7 @@ html {
   }
 }
 .section-hero-container .section-hero-content .section-hero-descr-container .section-hero-descr-title-container h3 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 22px;
   line-height: 1.4;
@@ -340,7 +340,7 @@ html {
   }
 }
 .section-hero-container .section-hero-content .section-hero-descr-container .section-hero-descr-title-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 2px;
   left: -25px;
@@ -379,7 +379,7 @@ html {
   }
 }
 .section-title-container {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 20px;
   text-align: left;
@@ -428,7 +428,7 @@ html {
   transition: width 1s ease;
 }
 .section-title-container .section-title-line::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 1px;
@@ -563,7 +563,7 @@ main {
   font-weight: 700;
 }
 .text.sans {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 .arrow {
   border-width: 0 2px 2px 0;
@@ -1033,12 +1033,12 @@ main {
 .casos-item-container .casos-item-content .casos-item-title-container span {
   color: #93358d;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 14px;
 }
 .casos-item-container .casos-item-content .casos-item-title-container span::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 2px;
@@ -1087,7 +1087,7 @@ main {
   height: 100%;
 }
 .casos-item-container .casos-item-content .casos-item-content-container h5 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 19px;
   color: #585858;
@@ -1314,7 +1314,7 @@ main {
   transition: transform 200ms ease;
 }
 .mail-container .mail-content .box::before {
-  content: '';
+  content: "";
   width: 15px;
   height: 1px;
   position: absolute;
@@ -1324,7 +1324,7 @@ main {
   transform: rotate(29deg);
 }
 .mail-container .mail-content .box::after {
-  content: '';
+  content: "";
   width: 15px;
   height: 1px;
   position: absolute;
@@ -1422,7 +1422,7 @@ main {
   }
 }
 .navbar-container .navbar-content .navbar-close-container .navbar-button-container::after {
-  content: '\00d7';
+  content: "\00d7";
 }
 @media (min-width: 680px) {
   .navbar-container .navbar-content .navbar-layout-container {
@@ -1488,7 +1488,7 @@ main {
 }
 .navbar-container .navbar-content .navbar-menu-container .navbar-menu .navbar-menu-item {
   font-size: 15px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   position: relative;
   width: fit-content;
@@ -1530,7 +1530,7 @@ main {
   margin-bottom: 0px;
 }
 .navbar-container .navbar-content .navbar-menu-container .navbar-menu .navbar-menu-item::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 1px;
   background: #54565a;
@@ -1594,7 +1594,7 @@ main {
   position: relative;
 }
 .navbar-container .navbar-content .navbar-footer-container::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 200vw;
   top: -10px;
@@ -1898,7 +1898,7 @@ main {
   text-align: center;
   font-size: 14px;
   font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #54565a;
   line-height: 1.6;
 }
@@ -1966,42 +1966,22 @@ main {
   }
 }
 .expertise-container .expertise-content .expertise-data-container .expertise-item-container {
-  box-shadow: 0px 2px 4px #00000029;
-  background: #fff;
+  background: #f6f6f6;
   z-index: 3;
   position: relative;
   margin-bottom: 15px;
   height: 155px;
   position: relative;
+  outline: 1px solid transparent;
+  transition: outline 300ms ease-in-out;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
 }
-.expertise-container .expertise-content .expertise-data-container .expertise-item-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  background: #93358d;
-  z-index: -1;
-  transition: width 600ms ease-in-out;
-}
-.expertise-container .expertise-content .expertise-data-container .expertise-item-container:hover::after {
-  width: 100%;
-  right: 0;
-}
-.expertise-container
-  .expertise-content
-  .expertise-data-container
-  .expertise-item-container:hover
-  .expertise-item-img-container {
-  outline: 1px solid #fff;
-}
-.expertise-container
-  .expertise-content
-  .expertise-data-container
-  .expertise-item-container:hover
-  .expertise-item-content-container {
-  color: #fff;
+.expertise-container .expertise-content .expertise-data-container .expertise-item-container:hover {
+  outline: 1px solid #93358d;
+  transform: scale(1.05);
+  z-index: 5;
+  box-shadow: 0px 2px 4px #00000029;
 }
 @media (min-width: 352px) {
   .expertise-container .expertise-content .expertise-data-container .expertise-item-container {
@@ -2041,8 +2021,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: 1px solid transparent;
-  transition: outline 600ms ease-in-out;
 }
 @media (min-width: 352px) {
   .expertise-container
@@ -2130,7 +2108,7 @@ main {
   .expertise-item-content-container
   h5 {
   margin-bottom: 4px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 13px;
 }
