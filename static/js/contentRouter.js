@@ -649,6 +649,7 @@ switch (segments[1]) {
       replaceContent("bajada_principal", pageData.bajada_principal)
       replaceContent("expertise_titulo", pageData.expertise_titulo)
       replaceContent("clientes_titulo", pageData.clientes_titulo)
+      replaceContent("clientes_bajada", pageData.clientes_bajada)
       replaceContent("partners_titulo", pageData.partners_titulo)
     })
     getQueHacemosItems().then((json) => {
