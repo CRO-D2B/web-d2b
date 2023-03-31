@@ -568,6 +568,7 @@ const renderExpertiseSingle = (expertise) => {
     })
   })
   getMasInfoExpertise(expertise.id).then((data) => {
+    if (data.data.length===0) document.querySelectorAll('.extra-info-content').forEach(e=>e.remove())
     data.data.forEach((info) => {
       let render = document.createElement("div")
       render.className = "extra-info-item"
