@@ -1829,7 +1829,9 @@ main {
   font-size: 13px;
   margin: 0;
 }
-
+.extra-info-item .extra-info-respuesta a {
+  color: #93358d;
+}
 .extra-info-respuesta {
   visibility: hidden;
   transition: 0.5s ease-in-out;
@@ -1845,7 +1847,6 @@ main {
 .expertise-extra-info-container {
   background-color: #fff;
 }
-
 .nuestra-expertise-content {
   display: flex;
   overflow: auto;
