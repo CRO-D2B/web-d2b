@@ -125,12 +125,14 @@ const renderClientes = (data, index) => {
 
 const renderPartners = (data, index) => {
   if (index < data.length) {
-    getImage(data[index].directus_files_id).then((image) => {
-      let div = document.createElement("div")
-      div.classList.add("cliente-logo", "carrousel-content-partner")
-      div.style.transform = "translateX(0%)"
-      div.innerHTML = '<img src="' + image + '">'
-      actualAppendContent("partners_container", div)
+    getPartnerImage(data[index].directus_files_id).then((partner) => {
+      let a = document.createElement("a")
+      a.target="_blank"
+      a.href = partner.description.replace(/<p>|<\/p>/g,"")
+      a.classList.add("cliente-logo", "carrousel-content-partner")
+      a.style.transform = "translateX(0%)"
+      a.innerHTML = '<img src="' + partner.data.full_url + '">'
+      actualAppendContent("partners_container", a)
       renderPartners(data, index + 1)
     })
   }

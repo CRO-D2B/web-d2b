@@ -133,6 +133,13 @@ const getImage = (id) => {
   })
 }
 
+const getPartnerImage = (id) => {
+  return doFetch("files/" + id).then((json) => {
+    console.log(json.data)
+    return json.data
+  })
+}
+
 const getRelated = (collection, relationship_field, id) => {
   return doFetch("items/" + collection + "?filter[" + relationship_field + "]=" + id)
 }
