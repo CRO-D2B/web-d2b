@@ -53,8 +53,8 @@ route('casos', function () {
 	return render_base('casos', file_get_contents('caso.html'));
 });
 
-route('expertise', function () {
-	return render_base('expertise', file_get_contents('expertise.html'));
+route('servicio', function () {
+	return render_base('servicio', file_get_contents('servicio.html'));
 });
 
 route('blog', function () {
@@ -130,11 +130,11 @@ route('sitemap.xml', function () {
 			</url>
 		';
 	}
-	$expertises = json_decode(file_get_contents('https://admin.d2b.cl/d2badmin/items/dev_expertise'));
-	foreach ($expertises->data as $expertise) {
+	$servicios = json_decode(file_get_contents('https://admin.d2b.cl/d2badmin/items/dev_expertise'));
+	foreach ($servicios->data as $servicio) {
 		$sitemap_content .= '
 			<url>
-			   <loc>' . $base_url . '/expertise/' . $expertise->url_segment . '</loc>
+			   <loc>' . $base_url . '/servicio/' . $servicio->url_segment . '</loc>
 			   <priority>0.8</priority>
 			</url>
 		';

@@ -40,8 +40,8 @@ function dispatch($action)
         $callback = $routes['blog'];
     } else if (preg_match('/casos\/.*/', $action)) {
         $callback = $routes['casos'];
-    } else if (preg_match('/expertise\/.*/', $action)) {
-        $callback = $routes['expertise'];
+    } else if (preg_match('/servicio\/.*/', $action)) {
+        $callback = $routes['servicio'];
     } else {
         $callback = $routes['list_category'];
     }

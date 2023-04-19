@@ -80,7 +80,7 @@ const renderExpertise = (data, index) => {
       let div = document.createElement("div")
       div.classList.add("expertise-item-container")
       div.innerHTML =
-        '<a href="/expertise/' +
+        '<a href="/servicio/' +
         data[index].url_segment +
         '"><div class="expertise-item-img-container"><img src="' +
         image +
@@ -102,7 +102,7 @@ const renderExpertiseNoDescription = (data, index) => {
       let a = document.createElement("a")
       a.classList.add("expertise-item-container")
       a.style.setProperty("--bgimg", "url(" + image + ")")
-      a.href = "/expertise/" + data[index].url_segment
+      a.href = "/servicio/" + data[index].url_segment
       a.innerHTML =
         "<div class='purple-border'></div><div class='expertise-item-content'>" + data[index].titulo + "</div>"
       actualAppendContent("expertise_data_container", a)
@@ -755,7 +755,7 @@ switch (segments[1]) {
       renderCasoSingle(caso)
     })
     break
-  case "expertise":
+  case "servicio":
     getExpertise().then((json) => {
       renderExpertiseNoDescription(json.data, 0)
       const expertise = json.data.filter((exp) => exp.url_segment == segments[2])[0]
