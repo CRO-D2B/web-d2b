@@ -1,0 +1,15 @@
+"User-agent: *
+Allow: /
+Disallow: /blog-images/
+Disallow: /tag/
+Disallow: /blog/tag/
+Disallow: /blog/author/
+Disallow: /blog/autores/
+Disallow: /autor/
+Disallow: /blog_d2b/
+Disellow: /wp-content/
+Disellow: /wp-includes/
+
+
+
+Sitemap: https://d2b.cl/sitemap.xml"
