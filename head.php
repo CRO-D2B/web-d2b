@@ -10,7 +10,7 @@ if ($head == 'blog') {
 
 if ($head == 'home') {
     $logo = '';
-}else if ($head == 'casos' || $head == 'expertise' || $head == 'blog') {
+}else if ($head == 'casos' || $head == 'servicio' || $head == 'blog') {
     $logo = "<div class='container header-container header-normal initial'>
                 <div class='header-content'>
                     <div class='header-logo-container'>
