@@ -42,6 +42,8 @@ function dispatch($action)
         $callback = $routes['casos'];
     } else if (preg_match('/servicio\/.*/', $action)) {
         $callback = $routes['servicio'];
+    } else if (preg_match('/login\/.*/', $action)) {
+        $callback = $routes['login'];
     } else {
         $callback = $routes['list_category'];
     }

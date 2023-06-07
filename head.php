@@ -2,7 +2,7 @@
 
 function render_head($head, $link_canonical){
 
-if ($head == 'blog') {
+if ($head == 'blog' || $head == 'login') {
     $body_classes = 'bg-grey-lighter';
 } else {
     $body_classes = '';

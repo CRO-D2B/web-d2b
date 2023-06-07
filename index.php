@@ -13,9 +13,10 @@ function render_base($head = false, $body)
 
 	$base .= $body;
 
-	if ($head !== 'home') {
+	if ($head !== 'home' && $head !== 'login') {
 		$base .= file_get_contents('footer.html');
 	}
+
 	return $base;
 }
 
@@ -55,6 +56,10 @@ route('casos', function () {
 
 route('servicio', function () {
 	return render_base('servicio', file_get_contents('servicio.html'));
+});
+
+route('login', function () {
+	return render_base('login', file_get_contents('login.html'));
 });
 
 route('blog', function () {

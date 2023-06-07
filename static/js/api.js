@@ -1,5 +1,17 @@
 const BASE_API = "https://admin.d2b.cl/d2badmin/"
 const BASE_URL = "https://d2b.cl/"
+const AUTHENTICATION_URL = 'https://dev--web-d2b-authentication-br4dcpfuba-uc.a.run.app'
+
+const authentication = (user, password, auth = '') => {
+  return fetch(AUTHENTICATION_URL + `?user=${user}&password=${password}`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: auth
+      }
+    }
+  )
+}
 
 const getQuienesSomos = () => {
   return getSinglePageData("quienes_somos")
