@@ -8,7 +8,7 @@ if ($head == 'blog' || $head == 'login') {
     $body_classes = '';
 }
 
-if ($head == 'home') {
+if ($head == 'home' || $head == 'login') {
     $logo = '';
 }else if ($head == 'casos' || $head == 'servicio' || $head == 'blog') {
     $logo = "<div class='container header-container header-normal initial'>
