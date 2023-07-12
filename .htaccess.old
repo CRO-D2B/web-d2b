@@ -14,15 +14,13 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On	
 	RewriteBase /
-	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-        RewriteRule ^ %{REQUEST_SCHEME}://%1%{REQUEST_URI} [R=301,L]
 	RewriteRule ^index\.php$ - [L]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule . /index.php [L]
 </IfModule>
 
-<IfModule mod_expires.c>
+<IfModule mod_expires.c>  
   # Turn on the module.
   ExpiresActive on
   # Set the default expiry times.
@@ -39,13 +37,15 @@
   ExpiresByType image/ico "access plus 1 month"
   ExpiresByType image/x-icon "access plus 1 month"
   ExpiresByType text/html "access plus 1 week"
-</IfModule>
+</IfModule>  
 
+RedirectMatch 301 ^/blog/wp-content/(.*) /blog-images/wp-content/$1
+RedirectMatch 301 ^/blog/author/(.*) /blog/
+RedirectMatch 301 ^/blog/category/(.*) /blog/$1
+RedirectMatch 301 ^/blog/tag/(.*) /blog/$1
+RedirectMatch 301 ^/tag/(.*) /blog/$1
 RedirectMatch 301 ^/performance /que-hacemos#expertise
 RedirectMatch 301 ^/analytics /que-hacemos#expertise
 RedirectMatch 301 ^/clientes /que-hacemos#clientes
 RedirectMatch 301 ^/casos$ /que-hacemos#casos
 RedirectMatch 301 ^/casos/$ /que-hacemos#casos
-RedirectMatch 301 ^/blog/preguntandole-al-experto-google-analytics-4 /blog/analitica-web/preguntandole-al-experto-google-analytics-4/
-RedirectMatch 301 ^/blog/hablemos-de-experiencia-ux-design /blog/analitica-web/hablemos-de-experiencia-de-usuario-el-arte-del-diseno-ux/
-RedirectMatch 301 ^/blog/ux-cro-una-breve-introduccion-al-diseno-inteligente blog/cro/ux-cro-una-breve-introduccion-al-diseno-inteligente/
