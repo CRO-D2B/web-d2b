@@ -386,7 +386,7 @@ function HandleOpen(item, clase = "active") {
   }
 }
 
-// EXPERTISE HTML
+// CARROUSEL EXPERTISE HTML
 const leftArrow = document.querySelector(".left-arrow")
 const rightArrow = document.querySelector(".right-arrow")
 const expertiseCards = Number(sessionStorage.getItem("expertiseCards"))
@@ -417,3 +417,70 @@ rightArrow.addEventListener("click", () => {
   document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove("active")
   document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add("active")
 })
+
+//IMPROVED CARROUSEL EXPERTISE HTML
+
+// const leftArrow = document.querySelector(".left-arrow");
+//  const rightArrow = document.querySelector(".right-arrow"); 
+//  const expertiseCards = Number(sessionStorage.getItem("expertiseCards")); 
+const carrousel = document.querySelector('#mobile_nuestra_expertise_items_container');
+
+leftArrow.addEventListener("click", () => {
+  const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
+  const actualCard = prevCard - 1
+  sessionStorage.setItem("actualExpertiseCard", actualCard)
+  carrousel.scrollBy(-1, 0)
+  document.querySelectorAll(".carrousel-button").forEach(btn => btn.classList.remove('active'))
+  document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add('active')
+})
+
+rightArrow.addEventListener("click", () => {
+  const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
+  const actualCard = prevCard + 1
+  sessionStorage.setItem("actualExpertiseCard", actualCard)
+  carrousel.scrollBy(1, 0)
+  document.querySelectorAll(".carrousel-button").forEach(btn => btn.classList.remove('active'))
+  document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add('active')
+})
+
+carrousel.addEventListener('scroll', () => {
+  if (carrousel.scrollLeft === 0) leftArrow.classList.add("no-visible")
+  if (carrousel.scrollLeft !== 0) leftArrow.classList.remove("no-visible")
+  if (carrousel.scrollLeft === (expertiseCards - 1) * carrousel.offsetWidth) rightArrow.classList.add("no-visible")
+  if (carrousel.scrollLeft !== (expertiseCards - 1) * carrousel.offsetWidth) rightArrow.classList.remove("no-visible")
+  leftArrow.setAttribute("disabled", "")
+  rightArrow.setAttribute("disabled", "")
+  if (carrousel.scrollLeft % carrousel.offsetWidth === 0) {
+    const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
+    const actualCard = carrousel.scrollLeft / carrousel.offsetWidth + 1
+    sessionStorage.setItem("actualExpertiseCard", actualCard)
+    document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove('active')
+    document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add('active')
+    leftArrow.removeAttribute("disabled")
+    rightArrow.removeAttribute("disabled")
+  }
+})
+
+// CARROUSEL "QUE HACEMOS CASOS" HTML
+
+const cardsContainer = document.querySelector('.casos-data-container');
+const points = document.querySelectorAll('.casos-carrousel-button');
+
+points.forEach((point, index) => {
+  point.addEventListener('click', () => {
+    const card = document.querySelector('.casos-data-container>div');
+    const cardWidth = card.offsetWidth;
+    points.forEach(point => point.classList.remove('active'));
+    point.classList.add('active');
+    cardsContainer.scrollLeft = cardWidth * index;
+  })
+});
+
+cardsContainer.addEventListener('scroll', () => {
+  const card = document.querySelector('.casos-data-container>div');
+  const scroll = cardsContainer.scrollLeft;
+  const cardWidth = card.offsetWidth;
+  const index = Math.round(scroll / cardWidth);
+  points.forEach(point => point.classList.remove('active'));
+  points[index].classList.add('active');
+});
