@@ -461,14 +461,16 @@ carrousel.addEventListener('scroll', () => {
   }
 })
 
-// CARROUSEL "QUE HACEMOS CASOS" HTML
+// CARROUSEL CASOS HTML
 
-const cardsContainer = document.querySelector('.casos-data-container');
+const cardsContainer = document.querySelector('.casos-data-container')
+                    ?? document.querySelector('.casospage-casos-content');
 const points = document.querySelectorAll('.casos-carrousel-button');
 
 points.forEach((point, index) => {
   point.addEventListener('click', () => {
-    const card = document.querySelector('.casos-data-container>div');
+    const card = document.querySelector('.casos-data-container>div')
+              ?? document.querySelector('.casospage-casos-content>div');
     const cardWidth = card.offsetWidth;
     points.forEach(point => point.classList.remove('active'));
     point.classList.add('active');
@@ -477,7 +479,8 @@ points.forEach((point, index) => {
 });
 
 cardsContainer.addEventListener('scroll', () => {
-  const card = document.querySelector('.casos-data-container>div');
+  const card = document.querySelector('.casos-data-container>div')
+              ?? document.querySelector('.casospage-casos-content>div');
   const scroll = cardsContainer.scrollLeft;
   const cardWidth = card.offsetWidth;
   const index = Math.round(scroll / cardWidth);
