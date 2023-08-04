@@ -143,9 +143,10 @@ const renderCasos = (data, index) => {
     getRelated("caso_categoria_casos", "caso_id", data[index].id).then((categoryRel) => {
       getSingleItem("categoria_casos", categoryRel.data[0].categoria_casos_id).then((category) => {
         getImage(category.data.icono).then((image) => {
+          let div=document.createElement("div")
           let a = document.createElement("a")
           a.href = "/casos/" + data[index].url_segment
-          a.classList.add("casos-item-container", "carrousel-content-casos")
+          div.classList.add("casos-item-container", "carrousel-content-casos")
           a.innerHTML =
             '<div class="casos-item-content">\
                                 <div class="casos-item-title-container">\
@@ -173,7 +174,8 @@ const renderCasos = (data, index) => {
                                     </div>\
                                 </div>\
                             </div>'
-          actualAppendContent("casos_container", a)
+          div.innerHTML=a.outerHTML
+          actualAppendContent("casos_container", div)
           renderCasos(data, index + 1)
         })
       })
