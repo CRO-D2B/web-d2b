@@ -761,16 +761,16 @@ main {
 }
 
 .carrousel-buttons-container {
-  /* position: absolute; */
-  /* bottom: 10%; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  width: 120px;
-  /* z-index: 4; */
   padding-bottom: 64px;
+  width: 120px;
+}
+
+@media (min-width: 680px) {
+  .carrousel-buttons-container {
+    padding-bottom: 0px;
+  }
 }
 
 @media (min-width: 680px) {
@@ -1193,32 +1193,22 @@ main {
 }
 
 .casos-item-container {
-  /* background: #f6f6f6; */
   min-width: 100%;
   transition: transform 200ms ease, background 200ms ease;
   scroll-snap-align: start;
-  /* max-height: 450px; */
 }
 
 @media (min-width: 680px) {
   .casos-item-container {
     min-width: 50%;
-    /* transform: translateX(0%) !important;  */
     padding-right: 10px;
-    /* margin-right: 10px; */
   }
-
-  /* .casos-item-container:last-of-type {
-    margin-right: 0px;
-  } */
 
 }
 
 @media (min-width: 1080px) {
   .casos-item-container {
     min-width: calc(100%/3);
-    /* width: 450px;
-    max-height: 850px; */
   }
 }
 
@@ -2418,12 +2408,6 @@ main {
   }
 }
 
-/* .expertise-container
-  .expertise-content
-  .expertise-data-container
-  .expertise-item-container:last-of-type {
-  margin-bottom: 0px;
-} */
 .expertise-container .expertise-content .expertise-data-container .expertise-item-container .expertise-item-img-container {
   width: 100px;
   height: 100%;
@@ -2603,7 +2587,6 @@ main {
 }
 
 .casos-container .casos-content .casos-data-container {
-  /* position: relative; */
   width: 100%;
   padding-bottom: 44px;
   display: flex;
@@ -2645,18 +2628,6 @@ main {
 .casos-container .casos-content .casos-data-container.animate>.casos-item-container:nth-of-type(3) {
   animation-delay: 600ms;
 }
-
-/* @media (min-width: 680px) and (max-width: 1080px) {
-  .casos-container .casos-content .casos-data-container {
-    overflow-x: scroll;
-  }
-} */
-/* @media (min-width: 680px) {
-  .casos-container .casos-content .casos-data-container {
-    padding-bottom: 0px;
-    min-height: 499px;
-  }
-} */
 
 .casos-container .casos-content .casos-btn-container {
   margin: 50px 0;

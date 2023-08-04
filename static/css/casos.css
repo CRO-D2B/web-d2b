@@ -283,42 +283,23 @@ html {
 }
 
 .casos-item-container {
-  /* background: #F6F6F6; */
   min-width: 100%;
   transition: transform 200ms ease, background 200ms ease;
   scroll-snap-align: start;
-  /* max-height: 450px */
 }
 
 @media (min-width: 680px) {
   .casos-item-container {
     min-width: 50%;
     padding-right: 10px;
-  /* width: 400px; */
-    /* min-width: 300px; */
-    /* transform: translateX(0%) !important; */
-    /* margin-right: 10px */
   }
-
-  /* .casos-item-container:last-of-type {
-    margin-right: 0px
-  } */
 }
 
 @media (min-width: 1080px) {
   .casos-item-container {
     min-width: calc(100%/3);
-    /* width: 450px;
-    max-height: 850px; */
   }
 }
-
-/* @media (min-width: 1440px) {
-  .casos-item-container {
-    width: 450px;
-    max-height: 850px
-  }
-} */
 
 .casos-item-container>a {
   cursor: pointer;
@@ -331,10 +312,6 @@ html {
 .casos-item-container>a:hover {
   background: #d9d9d9;
 }
-
-/* .casos-item-container:hover {
-  background: #D9D9D9
-} */
 
 .casos-item-container .casos-item-content {
   padding: 35px 25px;
@@ -1721,7 +1698,6 @@ main {
 }
 
 .casos-container .casos-content .casos-data-container {
-  /* position: relative; */
   width: 100%;
   padding-bottom: 44px;
   display: flex;
@@ -1730,8 +1706,6 @@ main {
   scroll-behavior: smooth;
   scrollbar-width: 0;
   -ms-overflow-style: none;
-  /* overflow: hidden;
-  justify-content: flex-start */
 }
 
 .casos-container .casos-content .casos-data-container::-webkit-scrollbar {
@@ -1765,19 +1739,6 @@ main {
 .casos-container .casos-content .casos-data-container.animate>.casos-item-container:nth-of-type(3) {
   animation-delay: 600ms
 }
-/* 
-@media (min-width: 680px) and (max-width: 1080px) {
-  .casos-container .casos-content .casos-data-container {
-    overflow-x: scroll
-  }
-}
-
-@media (min-width: 680px) {
-  .casos-container .casos-content .casos-data-container {
-    padding-bottom: 0px;
-    min-height: 499px
-  }
-} */
 
 .casos-container .casos-content .casos-btn-container {
   margin: 50px 0
@@ -1827,26 +1788,12 @@ main {
   scroll-behavior: smooth;
   scrollbar-width: 0;
   -ms-overflow-style: none;
-  /* justify-content: flex-start;
-  overflow: hidden;
-  position: relative; */
   padding-bottom: 44px
 }
+
 .casospage-casos-container .casospage-casos-content::-webkit-scrollbar {
   display: none;
 }
-
-/* @media (min-width: 680px) and (max-width: 1080px) {
-  .casospage-casos-container .casospage-casos-content {
-    overflow-x: scroll
-  }
-}
-
-@media (min-width: 680px) {
-  .casospage-casos-container .casospage-casos-content {
-    padding-bottom: 0px
-  }
-} */
 
 .casos-item-container-page {
   margin-bottom: 15px;
@@ -2124,16 +2071,16 @@ main {
 }
 
 .carrousel-buttons-container {
-  /* position: absolute; */
-  /* bottom: 10%; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   width: 120px;
-  /* z-index: 4; */
   padding-bottom: 64px;
+}
+
+@media (min-width: 680px) {
+  .carrousel-buttons-container {
+    padding-bottom: 0px;
+  }
 }
 
 @media (min-width: 680px) {
