@@ -1903,12 +1903,14 @@ main {
   width: 35px;
   background: #fff;
   transform: rotate(180deg);
+  cursor: pointer;
 }
 .right-arrow {
   border: none;
   height: 35px;
   width: 35px;
   background: #fff;
+  cursor: pointer;
 }
 .no-visible {
   visibility: hidden;

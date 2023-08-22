@@ -127,8 +127,8 @@ const renderPartners = (data, index) => {
   if (index < data.length) {
     getPartnerImage(data[index].directus_files_id).then((partner) => {
       let a = document.createElement("a")
-      a.target="_blank"
-      a.href = partner.description.replace(/<p>|<\/p>/g,"")
+      a.target = "_blank"
+      a.href = partner.description.replace(/<p>|<\/p>/g, "")
       a.classList.add("cliente-logo", "carrousel-content-partner")
       a.style.transform = "translateX(0%)"
       a.innerHTML = '<img src="' + partner.data.full_url + '">'
@@ -143,7 +143,7 @@ const renderCasos = (data, index) => {
     getRelated("caso_categoria_casos", "caso_id", data[index].id).then((categoryRel) => {
       getSingleItem("categoria_casos", categoryRel.data[0].categoria_casos_id).then((category) => {
         getImage(category.data.icono).then((image) => {
-          let div=document.createElement("div")
+          let div = document.createElement("div")
           let a = document.createElement("a")
           a.href = "/casos/" + data[index].url_segment
           div.classList.add("casos-item-container", "carrousel-content-casos")
@@ -174,7 +174,7 @@ const renderCasos = (data, index) => {
                                     </div>\
                                 </div>\
                             </div>'
-          div.innerHTML=a.outerHTML
+          div.innerHTML = a.outerHTML
           actualAppendContent("casos_container", div)
           renderCasos(data, index + 1)
         })
@@ -391,14 +391,14 @@ const renderArchivos = (data) => {
       "archivo_container_mobile",
       '<li>\
 			    <a href="/blog/archivo-' +
-        año +
-        "-" +
-        mesNumero +
-        '">' +
-        mesNombre +
-        " " +
-        año +
-        '</a>\
+      año +
+      "-" +
+      mesNumero +
+      '">' +
+      mesNombre +
+      " " +
+      año +
+      '</a>\
 			    <div class="arrow right border-grey"></div>\
 			</li>'
     )
@@ -406,14 +406,14 @@ const renderArchivos = (data) => {
       "archivo_container",
       '<li>\
 			    <a href="/blog/archivo-' +
-        año +
-        "-" +
-        mesNumero +
-        '">' +
-        mesNombre +
-        " " +
-        año +
-        '</a>\
+      año +
+      "-" +
+      mesNumero +
+      '">' +
+      mesNombre +
+      " " +
+      año +
+      '</a>\
 			    <div class="arrow right border-grey"></div>\
 			</li>'
     )
@@ -536,8 +536,6 @@ const renderExpertiseSingle = (expertise) => {
   replaceContent("bajada", contentWithBr)
   replaceContent("mobile_bajada", contentWithBr)
   getNuestraExpertise(expertise.id).then((data) => {
-    sessionStorage.setItem("actualExpertiseCard", 1)
-    sessionStorage.setItem("expertiseCards", data.data.length)
     data.data.forEach((item, index) => {
       let render = document.createElement("div")
       render.className = "nuestra-expertise-item-container"
@@ -558,21 +556,18 @@ const renderExpertiseSingle = (expertise) => {
       actualAppendContent("mobile_nuestra_expertise_items_container", renderMobile)
       actualAppendContent("nuestra_expertise_items_container", render)
       let dot = document.createElement("div")
-      dot.className = index === 0 ? "carrousel-button bg-grey-thin active" : "carrousel-button bg-grey-thin"
+      dot.className = `carrousel-button bg-grey-thin ${index === 0 ? 'active' : ''}`
       actualAppendContent("carrousel-buttons", dot)
-      document.querySelector("#carrousel-buttons").lastElementChild.addEventListener("click", () => {
-        const prevCard = Number(sessionStorage.getItem("actualExpertiseCard"))
-        const actualCard = index + 1
-        document.querySelectorAll(".carrousel-button")[prevCard - 1].classList.remove("active")
-        document.querySelectorAll(".carrousel-button")[actualCard - 1].classList.add("active")
-        document
-          .querySelector("#mobile_nuestra_expertise_items_container")
-          .scrollTo(index * document.querySelector("#mobile_nuestra_expertise_items_container").offsetWidth, 0)
-      })
     })
+    document.querySelectorAll("#carrousel-buttons>.carrousel-button").forEach((dot, index) => dot.addEventListener("click", () => {
+      const cardWidth = document.querySelector("#mobile_nuestra_expertise_items_container>div").offsetWidth;
+      document.querySelectorAll("#carrousel-buttons>.carrousel-button").forEach(point => point.classList.remove('active'))
+      dot.classList.add('active');
+      document.querySelector("#mobile_nuestra_expertise_items_container").scrollTo(index * cardWidth, 0)
+    }))
   })
   getMasInfoExpertise(expertise.id).then((data) => {
-    if (data.data.length===0) document.querySelectorAll('.extra-info-content').forEach(e=>e.remove())
+    if (data.data.length === 0) document.querySelectorAll('.extra-info-content').forEach(e => e.remove())
     data.data.forEach((info) => {
       let render = document.createElement("div")
       render.className = "extra-info-item"
