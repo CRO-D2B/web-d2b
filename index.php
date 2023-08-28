@@ -61,6 +61,10 @@ route('blog', function () {
 	return render_base('blog', file_get_contents('blog-home.html'));
 });
 
+route('expertos-personalizacion', function () {
+	return render_base('expertos-personalizacion', file_get_contents('expertos-personalizacion.html'));
+});
+
 route('send_message', function () {
 	return send_message();
 });
