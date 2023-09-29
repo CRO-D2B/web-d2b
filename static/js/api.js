@@ -1,5 +1,6 @@
 const BASE_API = "https://admin.d2b.cl/d2badmin/"
 const BASE_URL = "https://d2b.cl/"
+const WP_API = "https://d2b.cl/blog/wp-json/wp/v2/"
 
 const getQuienesSomos = () => {
   return getSinglePageData("quienes_somos")
@@ -11,6 +12,14 @@ const getCasos = () => {
 
 const getArticulos = () => {
   return getAll("blog")
+}
+
+const getArticulosWp = (items, fields) => {
+  return fetch(WP_API + "posts/?per_page=" + items + "&_fields=" + fields.join(","))
+}
+
+const getUsersWp = (fields) => {
+  return fetch(WP_API + "users"+ "?_fields=" + fields.join(","))
 }
 
 const getCategorias = () => {

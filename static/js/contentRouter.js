@@ -288,7 +288,31 @@ const renderArticulosRelacionados = (data) => {
     })
   })
 }
+const renderArticulosWP = (data) => {
+  data.forEach((articulo, index) => {
+    const articuloInfo = articulo.yoast_head_json
 
+    const image = articuloInfo.og_image[0].url
+    const title = articuloInfo.title
+    const date_to_show = articuloInfo.article_published_time.split('T',1)
+    const author = articuloInfo.twitter_misc['Escrito por']
+    const exceprt = articuloInfo.og_description
+    const url_segment = articulo.slug
+
+    replaceBgImage(`articulo_${index + 1}_image`, image)
+    replaceBgImage(`articulo_${index + 1}_mobile_image`, image)
+    replaceContent(`articulo_${index + 1}_titulo`, title)
+    replaceContent(`articulo_${index + 1}_mobile_titulo`, title)
+    replaceContent(`articulo_${index + 1}_fecha`, date_to_show)
+    replaceContent(`articulo_${index + 1}_mobile_fecha`, date_to_show)
+    replaceContent(`articulo_${index + 1}_autor`, author)
+    replaceContent(`articulo_${index + 1}_mobile_autor`, author)
+    if (index + 1 !== 2) replaceContent(`articulo_${index + 1}_extracto`, exceprt.substring(0, index + 1 === 1 ? 72 : 80) + "...")
+    replaceContent(`articulo_${index + 1}_mobile_extracto`, exceprt)
+    replaceLink(`articulo_${index + 1}_link`, "/blog/" + url_segment)
+    replaceLink(`articulo_${index + 1}_mobile_link`, "/blog/" + url_segment)
+  })
+}
 const renderCategorias = (data, index) => {
   if (index < data.length) {
     let li = document.createElement("li")
@@ -635,9 +659,12 @@ switch (segments[1]) {
     getBeneficios().then((json) => {
       renderBeneficios(json.data, json.data.length - 1)
     })
-    getArticulosRelacionados().then((json) => {
-      renderArticulosRelacionados(json.data)
-    })
+    // getArticulosRelacionados().then((json) => {
+    //   renderArticulosRelacionados(json.data)
+    // })
+    getArticulosWp(3, ['slug', 'yoast_head_json'])
+      .then(res => res.json())
+      .then(json => renderArticulosWP(json))
     break
   case "que-hacemos":
     getHeaders("que_hacemos", 1).then((data) => {
