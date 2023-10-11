@@ -12,6 +12,7 @@ const authentication = (user, password, auth = '') => {
     }
   )
 }
+
 const WP_API = "https://d2b.cl/blog/wp-json/wp/v2/"
 
 const getQuienesSomos = () => {

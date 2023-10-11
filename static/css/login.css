@@ -1226,7 +1226,7 @@ form input:focus-visible {
   outline: 0;
 }
 
-form span {
+form .error-msg {
   font-size: 12px;
   font-weight:500;
   color: #f00;
@@ -1241,4 +1241,24 @@ form button {
   color: #fff;
   padding: 6px;
   border-radius: 3px;
+}
+
+form button:hover {
+  background-color: #006f9e;
+}
+
+@keyframes rotation{
+  from {
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(90deg);
+  }
+}
+
+form svg{
+  display: none;
+  width: 20px;
+  height: 20px;
+  animation: rotation .5s linear infinite;
 }
