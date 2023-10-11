@@ -782,13 +782,17 @@ main {
 }
 
 @media (min-width: 680px) {
-  .carrousel-buttons-container.h-mobile, .carrousel-buttons-container>.h-mobile {
+
+  .carrousel-buttons-container.h-mobile,
+  .carrousel-buttons-container>.h-mobile {
     display: none;
   }
 }
 
 @media (min-width: 1080px) {
-  .carrousel-buttons-container.h-mobile, .carrousel-buttons-container>.h-tablet {
+
+  .carrousel-buttons-container.h-mobile,
+  .carrousel-buttons-container>.h-tablet {
     display: none;
   }
 }
@@ -801,8 +805,10 @@ main {
   transition: background 200ms ease;
 }
 
-.carrousel-buttons-container .carrousel-button:hover {
-  background: #93358d;
+@media (min-width: 680px) {
+  .carrousel-buttons-container .carrousel-button:hover {
+    background: #93358d;
+  }
 }
 
 .carrousel-buttons-container .carrousel-button.active {
