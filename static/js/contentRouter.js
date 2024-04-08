@@ -294,7 +294,7 @@ const renderArticulosWP = (data) => {
 
     const image = articuloInfo.og_image[0].url
     const title = articuloInfo.title
-    const date_to_show = articuloInfo.article_published_time.split('T',1)
+    const date_to_show = articuloInfo.article_published_time.split('T', 1)
     const author = articuloInfo.twitter_misc['Escrito por']
     const exceprt = articuloInfo.og_description
     const url_segment = articulo.slug
@@ -516,8 +516,6 @@ const renderCasoSingle = (caso) => {
     })
   })
   getRelatedResultados(caso.id).then((resultados) => {
-    let renderResultadosMobile = ""
-    let renderResultados = ""
     resultados.data.forEach((resultado) => {
       let render =
         '<div class="bullet-item-container"> \

@@ -14,7 +14,7 @@ class Message
 		if ($this->origen == 'contacto') {
 			$this->empresa = $postObject['empresa'] ;
 		}else{
-			$this->area_de_interes = $postObject['area_de_interes'] ;
+			$this->area_de_interes = $postObject['area_de_interes'];
 		}
 		$this->comentario = $postObject['comentario'] ;
 	}
@@ -25,6 +25,7 @@ class Message
 	}
 
 	private function send_mail() {
+		
 		$to = 'hola@d2b.cl';
 		if ($this->origen == 'contacto') {
 			$subject = 'Mesnaje D2B Web - Contacto';

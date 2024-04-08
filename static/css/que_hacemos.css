@@ -903,13 +903,13 @@ main {
 
 @media (min-width: 680px) {
   .clientes-container .clientes-content .clientes-logos-container .clientes-logos-content .cliente-logo {
-    margin-left: 50px;
+    margin-left: 30px;
   }
 }
 
 @media (min-width: 1080px) {
   .clientes-container .clientes-content .clientes-logos-container .clientes-logos-content .cliente-logo {
-    margin-left: 80px;
+    margin-left: 50px;
     transform: translateX(0px) !important;
   }
 }
@@ -926,6 +926,8 @@ main {
 
 .clientes-container .clientes-content .clientes-logos-container .clientes-logos-content .cliente-logo img {
   height: 70px;
+  width: 160px;
+  object-fit: contain;
 }
 
 @media (min-width: 680px) {
